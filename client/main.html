@@ -3,14 +3,10 @@
 </head>
 
 
-
-
-
-
-
-
 <body>
   <h1>Bingo</h1>
+
+
 
   {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
   {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
@@ -21,7 +17,7 @@
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
+  <button>{{counter}}</button>
   <!--{{counter}}-->
 </template>
 

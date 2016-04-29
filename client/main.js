@@ -10,24 +10,21 @@ Template.hello.onCreated(function helloOnCreated()
 });
 
 
-//test III from neal
-//test II from neal
-//Test comment
+// test III from neal
+// test II from neal
+// Test comment
 // Test comment to Neal
-//test III from sergio
-//one more test sergio
-
-
-
+// test III from sergio
+// one more test sergio
 
 
 
 Template.hello.helpers(
-    {
+  {
       counter()
   {
     return Template.instance().counter.get();
-  },
+  }
 });
 
 
