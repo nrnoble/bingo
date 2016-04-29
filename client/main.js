@@ -19,6 +19,9 @@ Template.hello.onCreated(function helloOnCreated()
 
 
 
+
+
+
 Template.hello.helpers(
     {
       counter()
@@ -26,6 +29,11 @@ Template.hello.helpers(
     return Template.instance().counter.get();
   },
 });
+
+
+
+
+
 
 Template.hello.events({
   'click button'(event, instance) {
