@@ -9,6 +9,8 @@ Template.hello.onCreated(function helloOnCreated()
   this.counter = new ReactiveVar(0);
 });
 
+//Test comment
+
 Template.hello.helpers(
     {
       counter()
