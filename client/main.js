@@ -10,6 +10,7 @@ Template.hello.onCreated(function helloOnCreated()
 });
 
 //Test comment
+// Test comment to Neal
 
 Template.hello.helpers(
     {
