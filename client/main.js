@@ -9,10 +9,14 @@ Template.hello.onCreated(function helloOnCreated()
   this.counter = new ReactiveVar(0);
 });
 
+
+//test III from neal
 //test II from neal
 //Test comment
 // Test comment to Neal
 //test III from sergio
+
+
 
 Template.hello.helpers(
     {
