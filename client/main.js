@@ -16,7 +16,7 @@ Template.hello.onCreated(function helloOnCreated()
 // Test comment to Neal
 //test III from sergio
 //one more test sergio
-
+// one more just for fun
 
 
 Template.hello.helpers(
