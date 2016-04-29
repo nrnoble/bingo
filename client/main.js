@@ -12,6 +12,7 @@ Template.hello.onCreated(function helloOnCreated()
 //test II from neal
 //Test comment
 // Test comment to Neal
+//test III from sergio
 
 Template.hello.helpers(
     {
