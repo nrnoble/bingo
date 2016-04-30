@@ -2,8 +2,7 @@
 /*test*/
 body {
     background-image: url('popcorn.jpg');
-    width: 1920px;
-    height: 1280px;
+
 
 }
 button {
@@ -12,7 +11,9 @@ button {
     font-size: 35px;
     border:none;
 
+
 }
 h1{
-    color: red;
+    font-size: xx-large;
+
 }
