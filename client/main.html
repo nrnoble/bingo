@@ -2,23 +2,16 @@
   <title>simple</title>
 </head>
 
-
 <body>
-  <h1>Bingo</h1>
+  <h1>Welcome to Meteor!</h1>
 
-
-
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  <!--{{> info}}-->
+  {{> hello}}
+  {{> info}}
 </body>
 
 <template name="hello">
-  <button>{{counter}}</button>
-  <!--{{counter}}-->
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
 </template>
 
 <template name="info">
