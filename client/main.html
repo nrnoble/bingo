@@ -3,14 +3,27 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Bingo</h1>
 
-  {{> hello}}
-  {{> info}}
+
+=======
+  <h1>Bingo Time!</h1>
+
+  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+  <!--{{> info}}-->
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
+
+  <button>{{counter}}</button>
+  <!--{{counter}}-->
+
+  <button>24</button>
+
   <p>You've pressed the button {{counter}} times.</p>
 </template>
 
@@ -23,3 +36,9 @@
     <li><a href="https://forums.meteor.com">Discussions</a></li>
   </ul>
 </template>
+
+
+
+
+
+
