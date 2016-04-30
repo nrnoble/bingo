@@ -1,1 +1,17 @@
 /* CSS declarations go here */
+body {
+    background-image: url("popcorn.jpg");
+    width: 1920px;
+    height: 1280px;
+
+}
+button {
+    background-color: lightgray;
+    border-radius: 12px;
+    font-size: 35px;
+    border:none;
+
+}
+h1{
+    color: red;
+}
