@@ -1,6 +1,7 @@
 /* CSS declarations go here */
+/*test*/
 body {
-    background-image: url("popcorn.jpg");
+    background-image: url('popcorn.jpg');
     width: 1920px;
     height: 1280px;
 
