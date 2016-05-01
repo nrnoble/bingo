@@ -3,24 +3,26 @@
 </head>
 
 <body>
-  <h1>Bingo</h1>
 
-
-=======
   <h1>Bingo Time!</h1>
+  <div class="container">
+      <div class="container">
+          <div class="row" >
+            <div class="col-xs-12 col-sm-2 col-md-10">
+              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
+            </div>
+          </div>
+      </div>
+  </div>
 
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  {{> hello}}{{> hello}}{{> hello}}{{> hello}}<BR>
-  <!--{{> info}}-->
 </body>
 
 <template name="hello">
   <button align="center">24</button>
-
-  <p>You've pressed the button {{counter}} times.</p>
 </template>
 
 <template name="info">
