@@ -3,8 +3,13 @@
 body {
     background-image: url('popcorn.jpg');
 
-
 }
+
+button
+{
+    padding: 18px 10px;
+}
+
 .bingo {
     background-color: lightgray;
     border: 1px solid black;
