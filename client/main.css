@@ -7,16 +7,17 @@ body {
 }
 .bingo {
     background-color: lightgray;
+    border: 1px solid black;
     border-radius: 12px;
     font-size: 35px;
-    border: none;
+
 }
 .bingoClick {
-    border: black;
     background-color: yellow;
+    border: 1px solid black;
     border-radius: 12px;
     font-size: 35px;
-    border: none;
+
 }
 
 h1{
