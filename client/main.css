@@ -5,14 +5,20 @@ body {
 
 
 }
-button {
+.bingo {
     background-color: lightgray;
     border-radius: 12px;
     font-size: 35px;
-    border:none;
-
-
+    border: none;
 }
+.bingoClick {
+    border: black;
+    background-color: yellow;
+    border-radius: 12px;
+    font-size: 35px;
+    border: none;
+}
+
 h1{
     font-size: xx-large;
 
