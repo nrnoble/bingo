@@ -1,5 +1,10 @@
-/* CSS declarations go here */
-/*test*/
+/*Neal Noble*/
+/*Sergio Remirez*/
+/*Meteor Team project: Bingo Time*/
+/*May 2016*/
+
+
+
 body
 {
     background-image: url('popcorn.jpg');
@@ -11,7 +16,7 @@ button
     padding: 18px 8px;
 }
 
-.bingo
+.notSelected
 {
     background-color: lightgray;
     border: 1px solid black;
@@ -20,7 +25,7 @@ button
 
 }
 
-.bingoClick
+.selected
 {
     background-color: yellow;
     border: 1px solid black;
