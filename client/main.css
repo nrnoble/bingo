@@ -1,23 +1,27 @@
 /* CSS declarations go here */
 /*test*/
-body {
+body
+{
     background-image: url('popcorn.jpg');
 
 }
 
 button
 {
-    padding: 18px 10px;
+    padding: 18px 8px;
 }
 
-.bingo {
+.bingo
+{
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 12px;
     font-size: 35px;
 
 }
-.bingoClick {
+
+.bingoClick
+{
     background-color: yellow;
     border: 1px solid black;
     border-radius: 12px;
@@ -25,7 +29,8 @@ button
 
 }
 
-h1{
+h1
+{
     font-size: xx-large;
 
 }

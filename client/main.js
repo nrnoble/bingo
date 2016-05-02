@@ -9,15 +9,58 @@ Template.hello.onCreated(function helloOnCreated()
   this.counter = new ReactiveVar(0);
   this.toggle = new ReactiveVar("bingo");
   this.test = new ReactiveVar(true);
+  this.rows = new ReactiveVar([5]);
+
+  this.rows[0]="foo";
+  this.rows[1]="foo";
+  this.rows[2]="foo";
+  this.rows[3]="foo";
+  this.rows[4]="foo";
+});
+
+var cardRow =
+[
+    {
+        rowID:1,
+    },
+    {
+        rowID:2
+    },
+    {
+        rowID:3
+    },
+    {
+        rowID:4
+    },
+    {
+        rowID:5
+    }
+]
+
+
+Template.hello.helpers
+({
+    row: function()
+    {
+        return cardRow;
+    }
+
 });
 
 
-// test III from neal
-// test II from neal
-// Test comment
-// Test comment to Neal
-// test III from sergio
-// one more test sergio
+function pad2(number)
+{
+    return (number < 10 ? '0' : '') + number
+}
+
+Template.hello.helpers
+({
+    bingoNumber: function()
+    {
+        return  pad2 (Math.floor (Math.random() * (75 - 1) + 1));
+    }
+
+});
 
 
 
