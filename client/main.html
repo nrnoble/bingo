@@ -1,5 +1,5 @@
 <head>
-  <title>simple</title>
+  <title>Bingo Time</title>
 </head>
 
 <body>
@@ -9,11 +9,11 @@
       <div class="container">
           <div class="row" >
             <div class="col-xs-12 col-sm-3 col-md-6">
-              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<br>
-              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<br>
-              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<br>
-              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<br>
-              {{> hello}}{{> hello}}{{> hello}}{{> hello}}{{> hello}}<br>
+              {{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}<br>
+              {{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}<br>
+              {{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}<br>
+              {{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}<br>
+              {{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}{{> bingoCard}}<br>
             </div>
           </div>
       </div>
@@ -22,20 +22,10 @@
 
 </body>
 
-<template name="hello">
+<template name="bingoCard">
 
     <button class="{{toggle}}">{{bingoNumber}}</button>
 
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com">Discussions</a></li>
-  </ul>
 </template>
 
 

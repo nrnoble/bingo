@@ -3,7 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated()
+Template.bingoCard.onCreated(function helloOnCreated()
 {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
@@ -38,7 +38,7 @@ var cardRow =
 ]
 
 
-Template.hello.helpers
+Template.bingoCard.helpers
 ({
     row: function()
     {
@@ -53,7 +53,7 @@ function pad2(number)
     return (number < 10 ? '0' : '') + number
 }
 
-Template.hello.helpers
+Template.bingoCard.helpers
 ({
     bingoNumber: function()
     {
@@ -64,7 +64,7 @@ Template.hello.helpers
 
 
 
-Template.hello.helpers(
+Template.bingoCard.helpers(
   {
       counter()
   {
@@ -75,35 +75,26 @@ Template.hello.helpers(
 });
 
 
-Template.hello.helpers(
+Template.bingoCard.helpers(
     {
       toggle()
       {
 
         if (this.toggle == true)
         {
-          //Template.instance().toggle.set(false);
           return Template.instance().toggle.get();
         }
 
-        // this.toggle = this.toggle + " 1";
-        // this.test = "foo";
-        // return this.toggle;
-        // Template.instance().toggle.set(!instance.toggle.set);
-        // return Template.instance().toggle.get();
          return Template.instance().toggle.get();
       }
-
-
     });
 
 
 
 
-Template.hello.events({
+Template.bingoCard.events({
   'click button'(event, instance) {
-    // increment the counter when button is clicked
-    //instance.toggle.set(!instance.counter.get());
+
     if (instance.toggle.get() == "bingo")
     {
       instance.toggle.set("bingoClick");
@@ -113,17 +104,6 @@ Template.hello.events({
       instance.toggle.set("bingo");
     }
 
-
-    //instance.toggle.set(!instance.toggle.get());
-
-  },
+  }
 });
 
-
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(!instance.counter.get());
-  },
-});
