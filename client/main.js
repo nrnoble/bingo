@@ -9,7 +9,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.bingoCard.onCreated(function helloOnCreated()
+Template.bingoSquare.onCreated(function helloOnCreated()
 {
 
     // toggle bingo title
@@ -24,15 +24,65 @@ Template.bingoCard.onCreated(function helloOnCreated()
 
 
 
+
+
+
 // pad numbers under 10 with a leading zero
 function pad2(number)
 {
     return (number < 10 ? '0' : '') + number
 }
 
+function getRandomBingoNumber (low, high)
+{
+    return Math.floor (Math.random() * (high - low) + low)
+}
+
+// get 5 unique random numbers
+function columnNumbers(low,high)
+{
+    var column = [5];
+    var numberCount = 1;
+    column[0] =  getRandomBingoNumber (low, high);
+    while (numberCount < 5)
+    {
+        var randomNumber = getRandomBingoNumber (low, high);
+        for (i = 0; i < 5; i++)
+        {
+            if(column[i] ==  undefined)
+            {
+                column[i] = randomNumber;
+                numberCount++;
+                break;
+            }
+
+            if (column[i] !=  randomNumber)
+            {
+                continue;
+            }
+
+
+            if (column[i] ==  randomNumber)
+            {
+                break;
+            }
+
+        }
+
+        return column
+    }
+
+}
+
+
+var getRandomNumberColumn_2 = (getRandomBingoNumber(16,31));
+var getRandomNumberColumn_3 = (getRandomBingoNumber(31,46));
+var getRandomNumberColumn_4 = (getRandomBingoNumber(46,61));
+var getRandomNumberColumn_5 = (getRandomBingoNumber(61,76));
+
 
 // generate random bingo numbers between 1-75
-Template.bingoCard.helpers
+Template.bingoRow.helpers
 ({
     bingoNumber: function()
     {
@@ -44,7 +94,7 @@ Template.bingoCard.helpers
 
 
 // Toggle the bingo style. This will switch css styles 
-Template.bingoCard.helpers(
+Template.bingoSquare.helpers(
 {
       toggle()
       {
@@ -60,8 +110,14 @@ Template.bingoCard.helpers(
 
 
 
+
+
+
+
+
+
 // Switch between css styles of selected, not selected.
-Template.bingoCard.events(
+Template.bingoSquare.events(
 {
   'click button'(event, instance)
   {
@@ -79,12 +135,14 @@ Template.bingoCard.events(
 });
 
 
+
+
 // below is code for future milestones.
 
 
 
 // used for testing
-Template.bingoCard.helpers(
+Template.bingoRow.helpers(
     {
         counter()
         {
@@ -118,7 +176,7 @@ var cardRow =
     ]
 
 // placeholder template for future use
-Template.bingoCard.helpers
+Template.bingoRow.helpers
 ({
     row: function()
     {
