@@ -1,0 +1,1 @@
+export var foo12 = "foo_12Test";

@@ -6,6 +6,7 @@
 
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { foo13 }  from '../server/main.js';
 
 import './main.html';
 
@@ -75,10 +76,7 @@ function columnNumbers(low,high)
 }
 
 
-var getRandomNumberColumn_2 = (getRandomBingoNumber(16,31));
-var getRandomNumberColumn_3 = (getRandomBingoNumber(31,46));
-var getRandomNumberColumn_4 = (getRandomBingoNumber(46,61));
-var getRandomNumberColumn_5 = (getRandomBingoNumber(61,76));
+
 
 
 // generate random bingo numbers between 1-75
