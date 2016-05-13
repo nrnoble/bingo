@@ -1,15 +1,21 @@
 
+export var getRandomNumberColumn_1 = (getRandomBingoNumber(16,31));
 export var getRandomNumberColumn_2 = (getRandomBingoNumber(16,31));
 export var getRandomNumberColumn_3 = (getRandomBingoNumber(31,46));
 export var getRandomNumberColumn_4 = (getRandomBingoNumber(46,61));
 export var getRandomNumberColumn_5 = (getRandomBingoNumber(61,76));
 
-Template.registerHelper('gt', function(array, n)
-{
-    return array && array.length > n;
-});
+//import {gbingoCardNumbers} from '../server/main.js';
 
+import { randomCardNumbers } from '../collections/collections.js';
+import { xNumbers } from '../collections/collections.js';
+var bingoSquareCounter = 0;
 
+var mongoCardNumbers = randomCardNumbers.find();
+//var item = mongoCardNumbers.hasNext();
+console.log(bingoSquareCounter);
+console.log("xNumbers(): " + xNumbers());
+console.log("xNumbers().length: " + xNumbers().length);
 Template.registerHelper('echo', function(str)
 {
     return str;
@@ -19,11 +25,8 @@ Template.registerHelper('echo', function(str)
 
 Template.registerHelper("foo",function ()
 {
-
     return "foo";
 })
-
-
 
 
 Template.registerHelper('randomBingoNumberByColumn', function(low, high)
@@ -36,7 +39,13 @@ Template.registerHelper('randomBingoNumberByColumn', function(low, high)
 // For testing purposes only
 Template.registerHelper('myRandomBingoNumber', function()
 {
-    return pad2 (Math.floor (Math.random() * (75 - 1) + 1));
+   // bingoSquareCounter++;
+    //return gbingoCardNumbers[i];
+    return pad2(xNumbers()[bingoSquareCounter++]);
+    
+    //counter++;
+    //return pad2 (1);
+    //return pad2 (Math.floor (Math.random() * (75 - 1) + 1));
 });
 
 
@@ -47,7 +56,6 @@ function pad2(number)
 {
     return (number < 10 ? '0' : '') + number
 }
-
 
 
 function getRandomBingoNumber (low, high)

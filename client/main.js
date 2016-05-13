@@ -27,7 +27,6 @@ Template.bingoSquare.onCreated(function helloOnCreated()
 
 
 
-
 // pad numbers under 10 with a leading zero
 function pad2(number)
 {
@@ -105,11 +104,6 @@ Template.bingoSquare.helpers(
          return Template.instance().toggle.get();
       }
 });
-
-
-
-
-
 
 
 

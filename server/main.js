@@ -11,6 +11,7 @@ import { getRandomNumberColumn_5 } from '../collections/collections.js';
 //import { bookmarksDummyData } from '../collections.js/collections.js.js';
 import  { foo12 } from '../data/bingodata.js';
 
+export var gbingoCardNumbers =[];
 
 
 
@@ -37,7 +38,13 @@ Meteor.startup(() =>
 // add column data
     for (var i = 0; i < 5; i++)
     {
-        // randomCardNumbers.insert(getRandomNumberColumn_1[i]);
+
+        gbingoCardNumbers[getRandomNumberColumn_1[i]];
+        gbingoCardNumbers[getRandomNumberColumn_2[i]];
+        gbingoCardNumbers[getRandomNumberColumn_3[i]];
+        gbingoCardNumbers[getRandomNumberColumn_4[i]];
+
+
         // randomCardNumbers.insert(getRandomNumberColumn_2[i]);
         // randomCardNumbers.insert(getRandomNumberColumn_3[i]);
         // randomCardNumbers.insert(getRandomNumberColumn_4[i]);
