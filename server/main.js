@@ -1,15 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import{ mongo } from  "meteor/mongo";
 
-import { xbingoNumbers } from '../collections/collections.js';
-import { randomCardNumbers } from '../collections/collections.js';
-import { getRandomNumberColumn_1 } from '../collections/collections.js';
-import { getRandomNumberColumn_2 } from '../collections/collections.js';
-import { getRandomNumberColumn_3 } from '../collections/collections.js';
-import { getRandomNumberColumn_4 } from '../collections/collections.js';
-import { getRandomNumberColumn_5 } from '../collections/collections.js';
+import { bingoNumbers } from '../data/bingodata.js';
+import { randomCardNumbers } from '../data/bingodata.js';
+import { getRandomNumberColumn_1 } from '../data/bingodata.js';
+import { getRandomNumberColumn_2 } from '../data/bingodata.js';
+import { getRandomNumberColumn_3 } from '../data/bingodata.js';
+import { getRandomNumberColumn_4 } from '../data/bingodata.js';
+import { getRandomNumberColumn_5 } from '../data/bingodata.js';
 //import { bookmarksDummyData } from '../collections.js/collections.js.js';
-import  { foo12 } from '../data/bingodata.js';
+
 
 export var gbingoCardNumbers =[];
 

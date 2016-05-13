@@ -15,11 +15,8 @@ May 2016
       <div class="container">
           <div class="row" >
             <div class="col-xs-12 col-sm-3 col-md-6">
-              {{> bingoRow}}
-              {{> bingoRow}}
-              {{> bingoRow}}
-              {{> bingoRow}}
-              {{> bingoRow}}
+              {{> bingocard}}<br>
+              {{> bingocard}}
             </div>
           </div>
       </div>
@@ -27,57 +24,5 @@ May 2016
 
 
 </body>
-
-<template name="bingoRow">
-
-        {{>bingoColumn_1}}{{>bingoColumn_2}}{{>bingoColumn_3}}{{>bingoColumn_4}}{{>bingoColumn_5}}<br>
-
-</template>
-
-
-<template name="bingoColumn_1">
-
-    <button class="{{toggle}}">{{myRandomBingoNumber}}</button>
-
-
-</template>
-
-
-<template name="bingoColumn_2">
-
-    <button class="{{toggle}}">{{myRandomBingoNumber}}</button>
-
-</template>
-
-
-<template name="bingoColumn_3">
-
-    <button class="{{toggle}}">{{myRandomBingoNumber}}</button>
-
-</template>
-
-
-<template name="bingoColumn_4">
-
-    <button class="{{toggle}}">{{myRandomBingoNumber}}</button>
-
-</template>
-
-
-<template name="bingoColumn_5">
-
-    <button class="{{toggle}}">{{myRandomBingoNumber}}</button>
-
-</template>
-
-
-
-
-<template name="bingoSquare">
-
-    <button class="{{toggle}}">{{randomBingoNumberByColumn 1 16}}</button>
-
-</template>
-
 
 
