@@ -96,11 +96,28 @@ export function allBingoNumbers()
 
 }
 
+export function randomizeBingoNumbers()
+{
+   var bingoNumbers = allBingoNumbers();
+
+   for (var idx = 1; idx<=75; idx++)
+   {
+        var swap =  Math.floor (Math.random() * (75 - 1) + 1);
+        var placeholder = bingoNumbers[idx];
+        bingoNumbers[idx] = bingoNumbers[swap];
+        bingoNumbers[swap] = placeholder;
+   }
+
+    return bingoNumbers;
+}
+
+
 
 export function getRandomBingoNumber (low, high)
 {
     return Math.floor (Math.random() * (high - low) + low)
 }
+
 
 // get 5 unique random numbers
 export function columnNumbers(low,high)
@@ -137,12 +154,6 @@ export function columnNumbers(low,high)
     }
 
 }
-
-
-
-
-
-
 
 
 
