@@ -9,6 +9,7 @@ export var getRandomNumberColumn_5 = (getRandomBingoNumber(61,76));
 
 import { randomCardNumbers } from '../data/bingodata.js';
 import { xNumbers } from '../data/bingodata.js';
+import { totalBingoNumbers } from '../data/bingocallednumbers.js';
 var bingoSquareCounter = 0;
 var bingoListCounter = 0;
 
@@ -65,8 +66,9 @@ Template.registerHelper('bingolistHelper', function()
         bingoListCounter = 0;
     }
 
-    return pad2(totalBingoNumbers()[bingoListCounter++]);
-    
+    //return pad2(totalBingoNumbers()[bingoListCounter++]);
+    return pad2 (totalBingoNumbers ());
+
     //counter++;
     //return pad2 (1);
     //return pad2 (Math.floor (Math.random() * (75 - 1) + 1));
