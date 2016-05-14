@@ -7,13 +7,14 @@
 
 body
 {
-    background-image: url('popcorn.jpg');
+
+    background-image: url("popcorn.jpg");
 
 }
 
 button
 {
-    padding: 18px 8px;
+    padding: 9px 4px;
 }
 
 .notSelected
@@ -36,6 +37,8 @@ button
 
 h1
 {
-    font-size: xx-large;
+    color: black;
+    font-size: 70px;
+    text-align: center;
 
 }
