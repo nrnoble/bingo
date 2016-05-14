@@ -10,6 +10,8 @@ export var getRandomNumberColumn_5 = (getRandomBingoNumber(61,76));
 import { randomCardNumbers } from '../data/bingodata.js';
 import { xNumbers } from '../data/bingodata.js';
 var bingoSquareCounter = 0;
+var bingoListCounter = 0;
+
 
 var mongoCardNumbers = randomCardNumbers.find();
 // var item = mongoCardNumbers.hasNext();
@@ -48,6 +50,22 @@ Template.registerHelper('myRandomBingoNumber', function()
     }
 
     return pad2(xNumbers()[bingoSquareCounter++]);
+    
+    //counter++;
+    //return pad2 (1);
+    //return pad2 (Math.floor (Math.random() * (75 - 1) + 1));
+});
+
+Template.registerHelper('bingolistHelper', function()
+{
+   // bingoSquareCounter++;
+    //return gbingoCardNumbers[i];
+    if (bingoListCounter >=75)
+    {
+        bingoListCounter = 0;
+    }
+
+    return pad2(totalBingoNumbers()[bingoListCounter++]);
     
     //counter++;
     //return pad2 (1);
