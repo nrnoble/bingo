@@ -5,24 +5,53 @@ Meteor Team project: Bingo Time
 May 2016
 -->
 <head>
-  <title>Bingo Time!</title>
+  <title>Bingo Time</title>
 </head>
 
 <body>
 
-  <h1>Bingo Time!!</h1>
-  <div class="container">
-      <div class="container">
-          <div class="row" >
-            <div class="col-xs-12 col-sm-3 col-md-6">
-              {{> bingocard}}<br>
-              {{> bingocard}}
+  
+    <div class="jumbotron">
+        <h1>Popcorn Bingo</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p align="center"></p>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-  </div>
+
+                <div class="col-xs-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                           <p align="center">
+                               {{> bingocard}}<br>
+                               {{> bingocard}}
+                           </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p align="center">{{>startGame}}</p>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
 
 
 </body>
 
 
+<template name="startGame">
+    <button type="button" class="btn btn-lg">Play Bingo</button>
+</template>
