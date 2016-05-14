@@ -64,6 +64,19 @@ export function pad2(number)
 }
 
 
+export function allBingoNumbers()
+{
+    var bingoNumbers = [];
+    for (var i = 1; i <=75;i++)
+    {
+        bingoNumbers[i] = i;
+    }
+
+    return bingoNumbers;
+
+}
+
+
 export function getRandomBingoNumber (low, high)
 {
     return Math.floor (Math.random() * (high - low) + low)
