@@ -66,8 +66,8 @@ Template.registerHelper('bingolistHelper', function()
         bingoListCounter = 0;
     }
 
-    //return pad2(totalBingoNumbers()[bingoListCounter++]);
-    return pad2 (totalBingoNumbers ());
+    return pad2(totalBingoNumbers()[bingoListCounter++]);
+    //return pad2 (totalBingoNumbers ());
 
     //counter++;
     //return pad2 (1);
