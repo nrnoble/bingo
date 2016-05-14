@@ -1,5 +1,5 @@
 /*Neal Noble*/
-/*Sergio Remirez*/
+/*Sergio Ramirez*/
 /*Meteor Team project: Bingo Time*/
 /*May 2016*/
 
@@ -7,9 +7,7 @@
 
 body
 {
-
     background-image: url("popcorn.jpg");
-
 }
 
 button
@@ -17,6 +15,7 @@ button
     padding: 9px 4px;
 }
 
+/*change the button when not selected*/
 .notSelected
 {
     background-color: lightgray;
@@ -26,6 +25,7 @@ button
 
 }
 
+/*change the button when selected*/
 .selected
 {
     background-color: yellow;

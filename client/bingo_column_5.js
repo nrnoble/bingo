@@ -2,7 +2,7 @@
 Template.bingoColumn_5.onCreated(function bingoColumn_5_OnCreated()
 {
 
-    // toggle bingo title
+    
     this.toggle = new ReactiveVar("notSelected");
 
     // used for testing

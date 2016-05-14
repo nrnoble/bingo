@@ -1,38 +1,21 @@
 
-export var getRandomNumberColumn_1 = (getRandomBingoNumber(16,31));
-export var getRandomNumberColumn_2 = (getRandomBingoNumber(16,31));
-export var getRandomNumberColumn_3 = (getRandomBingoNumber(31,46));
-export var getRandomNumberColumn_4 = (getRandomBingoNumber(46,61));
-export var getRandomNumberColumn_5 = (getRandomBingoNumber(61,76));
-
-//import {gbingoCardNumbers} from '../server/main.js';
-
 import { randomCardNumbers } from '../data/bingodata.js';
-import { xNumbers } from '../data/bingodata.js';
+import { cardGridNumbers }   from '../data/bingodata.js';
 import { totalBingoNumbers } from '../data/bingocallednumbers.js';
+
+
+// for creating a bingo card. During the creation of the bingo card a number is pulled from
+// the array of numbers, "bingoSquareCounter" is the index of next number to be used
 var bingoSquareCounter = 0;
+
+
+// used for creating the bingo display list of all bingo numbers. During the creation of the a number is pulled from
+// the array of numbers, "bingoListCounter" is the index of next number to be used
 var bingoListCounter = 0;
 
 
-var mongoCardNumbers = randomCardNumbers.find();
-// var item = mongoCardNumbers.hasNext();
-// console.log(bingoSquareCounter);
-// console.log("xNumbers(): " + xNumbers());
-// console.log("xNumbers().length: " + xNumbers().length);
 
-Template.registerHelper('echo', function(str)
-{
-    return str;
-});
-
-
-
-Template.registerHelper("foo",function ()
-{
-    return "foo";
-})
-
-
+// returns a random number between low and high
 Template.registerHelper('randomBingoNumberByColumn', function(low, high)
 {
     return pad2 (Math.floor (Math.random() * (high - low) + low));
@@ -40,41 +23,36 @@ Template.registerHelper('randomBingoNumberByColumn', function(low, high)
 
 
 
-
+// each time this helper is called it will return the next value in the array of bingo numbers
+// from an array that is order specifically to have the bingo numbers displayed in 5 cloumns
+// by 5 rows.
+// Column-1: 01-15
+// Column-2: 16-30
+// Column-3: 31-45
+// Column-4: 46-60
+// Column-5: 61-75
 Template.registerHelper('myRandomBingoNumber', function()
 {
-   // bingoSquareCounter++;
-    //return gbingoCardNumbers[i];
+ 
     if (bingoSquareCounter >=25)
     {
         bingoSquareCounter = 0;
     }
 
-    return pad2(xNumbers()[bingoSquareCounter++]);
-    
-    //counter++;
-    //return pad2 (1);
-    //return pad2 (Math.floor (Math.random() * (75 - 1) + 1));
+    return pad2(cardGridNumbers()[bingoSquareCounter++]);
+ 
 });
 
+// returns the next bingo number the list of all 75 bingo numbers.
+// the list is in the order of 1-75
 Template.registerHelper('bingolistHelper', function()
 {
-   // bingoSquareCounter++;
-    //return gbingoCardNumbers[i];
     if (bingoListCounter >=75)
     {
         bingoListCounter = 0;
     }
-
     return pad2(totalBingoNumbers()[bingoListCounter++]);
-    //return pad2 (totalBingoNumbers ());
-
-    //counter++;
-    //return pad2 (1);
-    //return pad2 (Math.floor (Math.random() * (75 - 1) + 1));
 });
-
-
 
 
 // pad numbers under 10 with a leading zero
@@ -84,6 +62,7 @@ export function pad2(number)
 }
 
 
+// returns an array of all bingo numbers 1-75 in order
 export function allBingoNumbers()
 {
     var bingoNumbers = [];
@@ -96,6 +75,7 @@ export function allBingoNumbers()
 
 }
 
+// returns an array all 75 bingo numbers in a randomizes order
 export function randomizeBingoNumbers()
 {
    var bingoNumbers = allBingoNumbers();
@@ -112,14 +92,14 @@ export function randomizeBingoNumbers()
 }
 
 
-
+// returns a random number between low and high paramenters
 export function getRandomBingoNumber (low, high)
 {
     return Math.floor (Math.random() * (high - low) + low)
 }
 
 
-// get 5 unique random numbers
+// returns an array of 5 unique random numbers betwee low and high parameters
 export function columnNumbers(low,high)
 {
     var column = [5];
@@ -157,21 +137,17 @@ export function columnNumbers(low,high)
 
 
 
-Template.registerHelper('xToggle', function()
+// for testing purposes
+Template.registerHelper('echo', function(str)
 {
-    if (instance.toggle.get() == "notSelected")
-    {
-        instance.toggle.set("selected");
-        console.log("selected");
-        return "selected";
-    }
-    else
-    {
-        instance.toggle.set("notSelected");
-        console.log("notSelected");
-        return "notSelected";
-    }
+    return str;
 });
 
+
+// for testing purposes
+Template.registerHelper("foo",function ()
+{
+    return "foo";
+})
 
 

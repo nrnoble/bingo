@@ -3,11 +3,11 @@ import{ mongo } from  "meteor/mongo";
 
 import { bingoNumbers } from '../data/bingodata.js';
 import { randomCardNumbers } from '../data/bingodata.js';
-import { getRandomNumberColumn_1 } from '../data/bingodata.js';
-import { getRandomNumberColumn_2 } from '../data/bingodata.js';
-import { getRandomNumberColumn_3 } from '../data/bingodata.js';
-import { getRandomNumberColumn_4 } from '../data/bingodata.js';
-import { getRandomNumberColumn_5 } from '../data/bingodata.js';
+import { bingoCardColumn_1 } from '../data/bingodata.js';
+import { bingoCardColumn_2 } from '../data/bingodata.js';
+import { bingoCardColumn_3 } from '../data/bingodata.js';
+import { bingoCardColumn_4 } from '../data/bingodata.js';
+import { bingoCardColumn_5 } from '../data/bingodata.js';
 //import { bookmarksDummyData } from '../collections.js/collections.js.js';
 
 
@@ -28,26 +28,26 @@ Meteor.startup(() =>
      // randomCardNumbers.insert(4);
      // randomCardNumbers.insert(5);
      // randomCardNumbers.insert(5);
-     // randomCardNumbers.insert(getRandomNumberColumn_1[1]);
-     // var test0 = getRandomNumberColumn_2[0];
-     // var test1 = getRandomNumberColumn_2[1];
-     // var test2 = getRandomNumberColumn_2[2];
-     // var test3 = getRandomNumberColumn_2[3];
-     // var test4 = getRandomNumberColumn_2[4];
+     // randomCardNumbers.insert(bingoCardColumn_1[1]);
+     // var test0 = bingoCardColumn_2[0];
+     // var test1 = bingoCardColumn_2[1];
+     // var test2 = bingoCardColumn_2[2];
+     // var test3 = bingoCardColumn_2[3];
+     // var test4 = bingoCardColumn_2[4];
 
 // add column data
     for (var i = 0; i < 5; i++)
     {
 
-        gbingoCardNumbers[getRandomNumberColumn_1[i]];
-        gbingoCardNumbers[getRandomNumberColumn_2[i]];
-        gbingoCardNumbers[getRandomNumberColumn_3[i]];
-        gbingoCardNumbers[getRandomNumberColumn_4[i]];
+        gbingoCardNumbers[bingoCardColumn_1[i]];
+        gbingoCardNumbers[bingoCardColumn_2[i]];
+        gbingoCardNumbers[bingoCardColumn_3[i]];
+        gbingoCardNumbers[bingoCardColumn_4[i]];
 
 
-        // randomCardNumbers.insert(getRandomNumberColumn_2[i]);
-        // randomCardNumbers.insert(getRandomNumberColumn_3[i]);
-        // randomCardNumbers.insert(getRandomNumberColumn_4[i]);
-        // randomCardNumbers.insert(getRandomNumberColumn_5[i]);
+        // randomCardNumbers.insert(bingoCardColumn_2[i]);
+        // randomCardNumbers.insert(bingoCardColumn_3[i]);
+        // randomCardNumbers.insert(bingoCardColumn_4[i]);
+        // randomCardNumbers.insert(bingoCardColumn_5[i]);
     }
 });

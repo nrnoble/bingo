@@ -4,38 +4,34 @@ export  const bookmarksCollection = new Mongo.Collection("bookmarks");
 export  const bingoNumbers        = new Mongo.Collection("bingoBalls");
 export  const randomCardNumbers    = new Mongo.Collection("bingoCardNumbers");
 
+// create 5 arrays with a specific range of random numbers
+// each array represents each of the 5 bingo columns on a bingocard
+export var bingoCardColumn_1 = (columnNumbers(1,16));
+export var bingoCardColumn_2 = (columnNumbers(16,31));
+export var bingoCardColumn_3 = (columnNumbers(31,46));
+export var bingoCardColumn_4 = (columnNumbers(46,61));
+export var bingoCardColumn_5 = (columnNumbers(61,76));
 
-export var getRandomNumberColumn_1 = (columnNumbers(1,16));
-export var getRandomNumberColumn_2 = (columnNumbers(16,31));
-export var getRandomNumberColumn_3 = (columnNumbers(31,46));
-export var getRandomNumberColumn_4 = (columnNumbers(46,61));
-export var getRandomNumberColumn_5 = (columnNumbers(61,76));
-
-
-export function xNumbers()
+// Combine the 5 arrays so that it creates a single array where the columns are correctly placed
+// to create a 5x5 bingo card
+export function cardGridNumbers()
 {
     var columnNumbers = [];
     var index = 0;
     for (var i = 0; i < 5; i++)
     {
 
-        columnNumbers[index++] = getRandomNumberColumn_1[i]; //console.log(index + " column-1: " + getRandomNumberColumn_1[i]);
-        columnNumbers[index++] = getRandomNumberColumn_2[i]; //console.log(index + " column-2: " + getRandomNumberColumn_2[i]);
-        columnNumbers[index++] = getRandomNumberColumn_3[i]; //console.log(index + " column-3: " + getRandomNumberColumn_3[i]);
-        columnNumbers[index++] = getRandomNumberColumn_4[i]; //console.log(index + " column-4: " + getRandomNumberColumn_4[i]);
-        columnNumbers[index++] = getRandomNumberColumn_5[i]; //console.log(index + " column-5: " + getRandomNumberColumn_5[i]);
+        columnNumbers[index++] = bingoCardColumn_1[i]; //console.log(index + " column-1: " + bingoCardColumn_1[i]);
+        columnNumbers[index++] = bingoCardColumn_2[i]; //console.log(index + " column-2: " + bingoCardColumn_2[i]);
+        columnNumbers[index++] = bingoCardColumn_3[i]; //console.log(index + " column-3: " + bingoCardColumn_3[i]);
+        columnNumbers[index++] = bingoCardColumn_4[i]; //console.log(index + " column-4: " + bingoCardColumn_4[i]);
+        columnNumbers[index++] = bingoCardColumn_5[i]; //console.log(index + " column-5: " + bingoCardColumn_5[i]);
 
 
     }
 
     console.log("Column Numbers: " +columnNumbers);
     return columnNumbers;
-}
-
-// pad numbers under 10 with a leading zero
-function pad2(number)
-{
-    return (number < 10 ? '0' : '') + number
 }
 
 
