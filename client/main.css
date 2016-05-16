@@ -12,7 +12,9 @@ body
 
 button
 {
-    padding: 9px 4px;
+    /*font-family: "Courier New";*/
+    font-family: Verdana;
+    padding: 6px 6px;
 }
 
 /*change the button when not selected*/
@@ -21,7 +23,7 @@ button
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 12px;
-    font-size: 35px;
+    font-size: 32px;
 
 }
 
@@ -31,7 +33,7 @@ button
     background-color: yellow;
     border: 1px solid black;
     border-radius: 12px;
-    font-size: 35px;
+    font-size: 32px;
 
 }
 
@@ -43,3 +45,10 @@ h1
 
 }
 
+.normal {
+    filter: invert(0%);
+}
+
+.inverted {
+    filter: invert(100%);
+}
