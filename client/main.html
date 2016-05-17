@@ -11,8 +11,9 @@ May 2016
 <body>
 
 
-    <div class="jumbotron">
+    <div id = "jumbotron" class="jumbotron">
         <h1>Popcorn Bingo</h1>
+
     </div>
 
     <div class="container">
@@ -21,7 +22,7 @@ May 2016
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p align="center">
-
+                        <div id="pickedBingoBall" class="btn btn-lg">00</div><br>
                             {{>bingoNumberList}}
 
                         </p>
@@ -63,7 +64,11 @@ May 2016
 
 <!--Template for starting a new bingo game-->
 <template name="startGame">
-    <button type="button" class="btn btn-lg">{{pickedBingoNumber}}</button>
+    <button id = "startButton" type="button" class="btn btn-lg">Start Bingo</button>
+</template>
+
+<template name="pickedBingoBall">
+    <button id = "pickedBingoBall" type="button" class="btn btn-lg">{{pickedBingoNumber}}</button>
 </template>
 
 
