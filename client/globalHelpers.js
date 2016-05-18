@@ -61,7 +61,6 @@ Template.bingocard.helpers({
 // Column-5: 61-75
 Template.registerHelper('getBingoCardNumbersInOrder', function()
 {
- 
     if (bingoCardButtonCounter >=25)
     {
         bingoCardButtonCounter = 0;
@@ -69,16 +68,13 @@ Template.registerHelper('getBingoCardNumbersInOrder', function()
     var num = cardGridNumbers()[bingoCardButtonCounter++];
     //console.log("cardGridNumbers()[" + bingoCardButtonCounter  +"]" + num);
     return pad2(num);
- 
 });
 
 
 //returns the current bing card button counter which is used to create the HTML button ID
 Template.registerHelper('getBingoCardButtonCounter', function()
 {
-
     return bingoCardButtonCounter;
-
 });
 
 
@@ -229,6 +225,14 @@ export function getBingoNumberbyID(id)
     $('#bingo1').css( "border", "3px solid red" );
 }
 
+
+// causes the the current execution thread to sleep for a period of time in milliseconds
+// 1000 = 1 second
+export function sleep(delay)
+{
+    var start = new Date().getTime();
+    while (new Date().getTime() < start + delay);
+}
 
 
 
