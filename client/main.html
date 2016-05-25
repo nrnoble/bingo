@@ -27,6 +27,7 @@ May 2016
         <!--</ul>-->
         <ul class="nav navbar-nav navbar-right">
             {{> loginButtons}} <!-- here -->
+
         </ul>
     </div>
 </div>
@@ -99,7 +100,11 @@ May 2016
 
 <!--Template for starting a new bingo game-->
 <template name="startGame">
-    <button id = "startButton" type="button" class="btn btn-lg">Start Bingo</button>
+    {{#unless isLoggedIn}}
+        You need to login to play Bingo
+    {{else}}
+        <button id = "startButton" type="button" class="btn btn-lg">Start Bingo</button>
+    {{/unless}}
 </template>
 
 <template name="pickedBingoBall">
@@ -168,4 +173,17 @@ May 2016
             </tr>
             </tbody>
     </table>
+</template>
+
+
+<template name="content">
+    {{#unless isLoggedIn}}
+        Please log in above...
+    {{else}}
+        {{#if isAdmin}}
+            {{> adminContent}}
+        {{else}}
+            Regular content...
+        {{/if}}
+    {{/unless}}
 </template>

@@ -1,6 +1,6 @@
 // Neal Noble
 // Sergio Ramirez
-// Meteor Team project: Bingo Time
+// Meteor Team project: Popcorn Bingo
 // May 2016
 
 
@@ -11,6 +11,30 @@ import { Meteor } from 'meteor/meteor';
 import { sleep } from './globalHelpers.js';
 
 import './main.html';
+
+
+//pull down some published data from the server
+Meteor.subscribe('userData');
+userData = new Mongo.Collection('userData');
+
+
+Accounts.ui.config({
+    passwordSignupFields: 'EMAIL_ONLY'
+});
+
+
+
+
+Template.startGame.helpers({
+    "isAdmin": function() {
+        return Meteor.user() != null && Meteor.user().profile.userType == "admin";
+    },
+    "isLoggedIn": function()
+    {
+        return Meteor.user() != null;
+        console.log("Meteor.user(): " + Meteor.user());
+    }
+});
 
 Template.bingoSquare.onCreated(function bingoSquareOnCreated()
 {
@@ -170,6 +194,8 @@ function myTimer()
     var d = new Date();
     document.getElementById("startButton").innerHTML = d.toLocaleTimeString();
 }
+
+
 
 
 

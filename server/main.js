@@ -13,6 +13,29 @@ import { bingoCardColumn_5 } from '../data/bingodata.js';
 
 export var gbingoCardNumbers =[];
 export var myFooTest_1 = "Test";
+//hook to respond to user account creation!
+Accounts.onCreateUser(function(option, user) {
+    //options are sent from your login provider...
+
+    //assign your profile
+    user.profile = option.profile;
+
+    //we can add our own data here...
+    user.profile.userType = 'basic_user'; //admin, guest, basic_user, ...
+    user.profile.address =
+    {
+        'street': "",
+        'city': "",
+        'state': "",
+        'zip': ""
+    };
+
+    user.profile.siteVisits = 1;
+
+    return user;
+});
+
+
 
 
 // Meteor.publish('pfoo', function tasksPublication()
