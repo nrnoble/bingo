@@ -12,11 +12,19 @@ import { bingoCardColumn_5 } from '../data/bingodata.js';
 
 
 export var gbingoCardNumbers =[];
+export var myFooTest_1 = "Test";
 
 
+// Meteor.publish('pfoo', function tasksPublication()
+// {
+//     return myFooTest_1;
+// });
 
 Meteor.startup(() =>
 {
+
+
+    var myFooTest_2 = "Test123";
 
 
     // remove any database values that are present
@@ -51,3 +59,18 @@ Meteor.startup(() =>
         // randomCardNumbers.insert(bingoCardColumn_5[i]);
     }
 });
+
+
+
+// This used for testing only. 
+Meteor.methods({
+
+   serverVarTest: function(){
+
+       console.log("Server test1");
+       return "test1234";
+   }
+
+})
+
+

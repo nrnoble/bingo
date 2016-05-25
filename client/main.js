@@ -7,6 +7,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { getNextBingoNumberPicked } from './globalHelpers.js';
+import { Meteor } from 'meteor/meteor';
 import { sleep } from './globalHelpers.js';
 
 import './main.html';
@@ -63,6 +64,18 @@ Template.startGame.events({
     'click button'(event, instance) 
     {
         console.log("Entering Template.startGame.events");
+        // var serverTestVar = Meteor.call('serverVarTest');
+        // console.log("serverTestVar: " + serverTestVar);
+        //
+        // var myMethodTest =  Meteor.call('serverVarTest');
+        // console.log("myMethodTest: " + myMethodTest);
+
+        Meteor.call('serverVarTest',function(error,result)
+        {
+            console.log("result: " + result);
+        });
+
+
 
 
         buttonInstance = instance;
@@ -151,9 +164,17 @@ export function verifyBingo()
 
 
 
-// Used for testing purposes. Not part of game
+
 function myTimer()
 {
     var d = new Date();
     document.getElementById("startButton").innerHTML = d.toLocaleTimeString();
+}
+
+
+
+// Used for testing purposes. Not part of game
+function myCallBack(error, result)
+{
+    console.log("result: " + result);
 }

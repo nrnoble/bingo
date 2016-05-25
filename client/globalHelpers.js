@@ -1,6 +1,6 @@
 
 import { randomCardNumbers } from '../data/bingodata.js';
-import { cardGridNumbers }   from '../data/bingodata.js';
+import { cardGridNumbers   } from '../data/bingodata.js';
 import { totalBingoNumbers } from '../data/bingocallednumbers.js';
 
 
