@@ -10,6 +10,7 @@ body
     background-image: url("popcorn.jpg");
 }
 
+
 button
 {
     /*font-family: "Courier New";*/
@@ -55,7 +56,7 @@ h1
 
 .th
 {
-    text-align: center;
+    text-align: right;
 }
 td {
     text-align: center;
