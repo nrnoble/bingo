@@ -30,7 +30,7 @@ export function cardGridNumbers()
 
     }
 
-    console.log("Column Numbers: " +columnNumbers);
+   // console.log("Column Numbers: " +columnNumbers);
     return columnNumbers;
 }
 

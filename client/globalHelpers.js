@@ -234,6 +234,23 @@ export function sleep(delay)
 }
 
 
+export function resetBingoCard()
+{
+   
+    $("cardButtonId-").css("notSelected");
+
+}
+
+
+
+Template.registerHelper('isLoggedIn', function()
+{
+   // console.log("Meteor.user(): " + Meteor.user());
+    return Meteor.user() == null;
+});
+
+
+
 
 // Code below is for testing purposes and can be removed when the project is finished
 // Code below is for testing purposes and can be removed when the project is finished
@@ -241,7 +258,6 @@ export function sleep(delay)
 // Code below is for testing purposes and can be removed when the project is finished
 // Code below is for testing purposes and can be removed when the project is finished
 // Code below is for testing purposes and can be removed when the project is finished
-
 
 
 

@@ -11,6 +11,7 @@ import { bingoCardColumn_5 } from '../data/bingodata.js';
 //import { bookmarksDummyData } from '../collections.js/collections.js.js';
 
 
+
 export var gbingoCardNumbers =[];
 export var myFooTest_1 = "Test";
 //hook to respond to user account creation!
@@ -48,6 +49,7 @@ Meteor.startup(() =>
 
 
     var myFooTest_2 = "Test123";
+
 
 
     // remove any database values that are present

@@ -9,20 +9,51 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { getNextBingoNumberPicked } from './globalHelpers.js';
 import { Meteor } from 'meteor/meteor';
 import { sleep } from './globalHelpers.js';
-
 import './main.html';
 
+// continuely check if user us logged in
+var loginCheckloopID = setInterval(loginCheck,1000);
+
+// userIsLoggedIn is a global variable that returns true if a user is logged in.
+var userIsLoggedIn = false;
 
 //pull down some published data from the server
 Meteor.subscribe('userData');
 userData = new Mongo.Collection('userData');
 
 
+function loginCheck()
+{
+
+    if (Meteor.user() != null)
+    {
+        userIsLoggedIn = true;
+        //console.log("user is logged in");
+    }
+    else
+    {
+        userIsLoggedIn = false;
+        //console.log("user is not logged in");
+    }
+
+}
+
 Accounts.ui.config({
     passwordSignupFields: 'EMAIL_ONLY'
 });
 
 
+Template.gameReset.events({
+
+
+    'click button'(event, instance)
+    {
+
+        $('[id^=cardButtonId]').removeClass("selected");
+        $('[id^=cardButtonId]').addClass("notSelected");
+    }
+
+});
 
 
 Template.startGame.helpers({
@@ -32,9 +63,10 @@ Template.startGame.helpers({
     "isLoggedIn": function()
     {
         return Meteor.user() != null;
-        console.log("Meteor.user(): " + Meteor.user());
+        //console.log("Meteor.user(): " + Meteor.user());
     }
 });
+
 
 Template.bingoSquare.onCreated(function bingoSquareOnCreated()
 {
@@ -58,11 +90,14 @@ Template.pickedBingoBall.onCreated(function pickedBingoBallOnCreated()
 
 
 
-Template.startGame.helpers({
+Template.startGame.helpers(
+    {
     pickedBingoNumber() {
         return Template.instance().pickedBingoNumber.get();
     }
 });
+
+
 
 Template.pickedBingoBall.helpers({
     pickedBingoNumber() {
@@ -75,7 +110,9 @@ Template.pickedBingoBall.helpers({
 // runStatus toggles the game between run and pause.
 var runStatus = false;
 
-var buttonInstance = null;
+//
+var startButtonInstance = null;
+
 
 // PICK_TIMER is the delay for between picking bingo ball numbers. 1000 = 1 second
 var PICK_TIMER = 5000;
@@ -87,62 +124,69 @@ Template.startGame.events({
     
     'click button'(event, instance) 
     {
-        console.log("Entering Template.startGame.events");
-        // var serverTestVar = Meteor.call('serverVarTest');
-        // console.log("serverTestVar: " + serverTestVar);
-        //
-        // var myMethodTest =  Meteor.call('serverVarTest');
-        // console.log("myMethodTest: " + myMethodTest);
-
-        Meteor.call('serverVarTest',function(error,result)
-        {
-            console.log("result: " + result);
-        });
-
-
-
-
-        buttonInstance = instance;
-        runStatus = !runStatus;
-        //$('#startButton').disabled = true;
-        //gameLoop (pause, instance);
-
-        //document.getElementById("startButton").disabled = false;
-
-        //var bingoNumber = $('#bingo'+ pickedNumber).css( "filter", "invert(100%)");
-        //$('#bingo'+pickedNumber).css( "border", "3px solid red" );
-        //$('#bingo'+pickedNumber).css( "background-color", "yellow" );
-        //$('#bingo'+id).css( "background-color", "yellow" );
-        //console.log("bingoNumber: " + '#bingo'+ pickedNumber);
-        //instance.pickedBingoNumber.set(pickedNumber);
-        var timerDelay = document.getElementById("pickTimerDelay").value;
-        console.log("timerDelay: " + timerDelay);
-        // document.getElementById("startButton").disabled = true;
-
-
-        //var myVar = setInterval(myTimer ,1000);
-        if (runStatus)
-        {
-
-            // console.log("BEFORE gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
-            gameInstance = setInterval(gameLoop, timerDelay);
-            // console.log("AFTER gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
-
-            document.getElementById("startButton").innerHTML = "Running. Click to Pause";
-        }
-        else
-        {
-            // console.log("BEFORE clearInterval(gameInstance): " + gameInstance);
-            clearInterval(gameInstance);
-            // console.log("AFTER clearInterval(gameInstance): " + gameInstance);
-            document.getElementById("startButton").innerHTML = "Paused. Click to resume";
-        }
-
-
-        console.log("Exiting Template.startGame.events. gameInstance=" + gameInstance);
-
+        startButton(instance);
     }
 });
+
+
+function startButton(instance)
+{
+    console.log("Entering Template.startGame.events");
+    // var serverTestVar = Meteor.call('serverVarTest');
+    // console.log("serverTestVar: " + serverTestVar);
+    //
+    // var myMethodTest =  Meteor.call('serverVarTest');
+    // console.log("myMethodTest: " + myMethodTest);
+
+    Meteor.call('serverVarTest',function(error,result)
+    {
+        console.log("serverVarTest: " + result);
+    });
+
+
+
+
+    startButtonInstance = instance;
+    runStatus = !runStatus;
+    //$('#startButton').disabled = true;
+    //gameLoop (pause, instance);
+
+    //document.getElementById("startButton").disabled = false;
+
+    //var bingoNumber = $('#bingo'+ pickedNumber).css( "filter", "invert(100%)");
+    //$('#bingo'+pickedNumber).css( "border", "3px solid red" );
+    //$('#bingo'+pickedNumber).css( "background-color", "yellow" );
+    //$('#bingo'+id).css( "background-color", "yellow" );
+    //console.log("bingoNumber: " + '#bingo'+ pickedNumber);
+    //instance.pickedBingoNumber.set(pickedNumber);
+    var timerDelay = document.getElementById("pickTimerDelay").value;
+    //console.log("timerDelay: " + timerDelay);
+    // document.getElementById("startButton").disabled = true;
+
+
+    //var myVar = setInterval(myTimer ,1000);
+    if (runStatus)
+    {
+
+        // console.log("BEFORE gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
+        gameInstance = setInterval(gameLoop, timerDelay);
+        // console.log("AFTER gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
+
+        document.getElementById("startButton").innerHTML = "Running. Click to Pause";
+    }
+    else
+    {
+        // console.log("BEFORE clearInterval(gameInstance): " + gameInstance);
+        clearInterval(gameInstance);
+        // console.log("AFTER clearInterval(gameInstance): " + gameInstance);
+        document.getElementById("startButton").innerHTML = "Paused. Click to resume";
+    }
+
+
+    console.log("Exiting Template.startGame.events. gameInstance=" + gameInstance);
+
+}
+
 
 
 
@@ -150,14 +194,20 @@ Template.startGame.events({
 // gameLoop is called by setInterval which then executes every X seconds
 function gameLoop(pause, instance )
 {
-    console.log("entering function gameLoop");
+   // console.log("entering function gameLoop");
+
+    if (!userIsLoggedIn)
+    {
+        startButton(startButtonInstance);
+    }
+
     var pickedNumber = getNextBingoNumberPicked(true);
     var id = pickedNumber;
 
         $('#bingo' + id).css("background-color", "yellow");
         $('#pickedBingoBall').html(pickedNumber);
 
-    console.log("exiting function gameLoop");
+    //console.log("exiting function gameLoop");
 }
 
 
@@ -204,3 +254,5 @@ function myCallBack(error, result)
 {
     console.log("result: " + result);
 }
+
+

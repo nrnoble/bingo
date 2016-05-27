@@ -66,30 +66,16 @@ May 2016
 
                 <div class="col-xs-4">
                     <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p align="center">
-
-                            {{> startGame}}<br>
-
-                        </p>
-                    </div>
-                </div>
-                    <div class="panel panel-default">
                         <div class="panel-body">
                             <p align="center">
 
-
-                            <form>
-                                <h3>Testing</h3>
-                                Pick Delay<br>
-                                <input id="pickTimerDelay" type = "text" name="pickTimerDelay" value="5000">
-                            </form>
+                                {{> startGame}}<br>
 
                             </p>
                         </div>
                     </div>
-
-                </div>
+                    {{>testing}}
+            </div>
 
         </div>
     </div>
@@ -106,6 +92,28 @@ May 2016
         <button id = "startButton" type="button" class="btn btn-lg">Start Bingo</button>
     {{/unless}}
 </template>
+
+
+
+<template name="testing">
+    {{#unless isLoggedIn}}
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <h3>Testing</h3>
+                    Pick Delay<br>
+                    <input id="pickTimerDelay" type = "text" name="pickTimerDelay" value="5000">
+                </form>
+                <br>
+                {{>gameReset}}
+            </div>
+
+        </div>
+
+    {{/unless}}
+</template>
+
 
 <template name="pickedBingoBall">
     <button id = "pickedBingoBall" type="button" class="btn btn-lg">{{pickedBingoNumber}}</button>
@@ -174,6 +182,14 @@ May 2016
             </tbody>
     </table>
 </template>
+
+
+<!--Resets game data. Game testing code-->
+<template name ="gameReset">
+    <button id = "reset" type="button" class="btn btn-lg">Game Reset</button>
+</template>
+
+
 
 
 <template name="content">
