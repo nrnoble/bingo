@@ -43,7 +43,7 @@ May 2016
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p align="center">
-                        <div id="pickedBingoBall" class="btn btn-lg">00</div><br>
+                        <div id="pickedBingoBallID" class="btn btn-lg">00</div><br>
                             {{>bingoNumberList}}
 
                         </p>
@@ -89,7 +89,9 @@ May 2016
     {{#unless isLoggedIn}}
         You need to login to play Bingo
     {{else}}
+
         <button id = "startButton" type="button" class="btn btn-lg">Start Bingo</button>
+
     {{/unless}}
 </template>
 
@@ -107,6 +109,7 @@ May 2016
                 </form>
                 <br>
                 {{>gameReset}}
+                {{>btnbingo}}
             </div>
 
         </div>
@@ -186,10 +189,13 @@ May 2016
 
 <!--Resets game data. Game testing code-->
 <template name ="gameReset">
-    <button id = "reset" type="button" class="btn btn-lg">Game Reset</button>
+    <button id = "resetButtonID" type="button" class="btn btn-lg" disabled="true">Game Reset</button>
 </template>
 
-
+<!--Checks game data for validating a Bingo Jackpot-->
+<template name ="btnbingo">
+    <button id = "btnbingo" type="button" class="btn btn-lg">Bingo!</button>
+</template>
 
 
 <template name="content">

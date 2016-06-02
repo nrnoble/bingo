@@ -2,7 +2,7 @@ import{ mongo } from  "meteor/mongo";
 //export access to my collections
 export  const bookmarksCollection = new Mongo.Collection("bookmarks");
 export  const bingoNumbers        = new Mongo.Collection("bingoBalls");
-export  const randomCardNumbers    = new Mongo.Collection("bingoCardNumbers");
+export  const randomCardNumbers   = new Mongo.Collection("bingoCardNumbers");
 
 // create 5 arrays with a specific range of random numbers
 // each array represents each of the 5 bingo columns on a bingocard

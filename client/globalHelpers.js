@@ -1,18 +1,23 @@
+/**
+ * Created by Neal on 5/27/2016.
+ */
 
 import { randomCardNumbers } from '../data/bingodata.js';
 import { cardGridNumbers   } from '../data/bingodata.js';
+import { gameInstance   } from '../client/main.js';
+import { runStatus   } from '../client/main.js';
 import { totalBingoNumbers } from '../data/bingocallednumbers.js';
-
+import * as main  from '../client/main.js';
 
 /****************************************************************************************************
-    create a virtual bingo card of 25 bingo numbers  randomly picked from 5 colums of numbers
-    Column-1: 01-15
-    Column-2: 16-30
-    Column-3: 31-45
-    Column-4: 46-60
-    Column-5: 61-75
+ create a virtual bingo card of 25 bingo numbers  randomly picked from 5 colums of numbers
+ Column-1: 01-15
+ Column-2: 16-30
+ Column-5: 61-75
+ Column-3: 31-45
+ Column-4: 46-60
 
-    Each card is a 5x5 grid with each column containing a specific range of random numbers
+ Each card is a 5x5 grid with each column containing a specific range of random numbers
 
  ****************************************************************************************************/
 
@@ -69,6 +74,7 @@ Template.registerHelper('getBingoCardNumbersInOrder', function()
     //console.log("cardGridNumbers()[" + bingoCardButtonCounter  +"]" + num);
     return pad2(num);
 });
+
 
 
 //returns the current bing card button counter which is used to create the HTML button ID
@@ -131,10 +137,10 @@ Template.registerHelper('bingolistHelper', function()
     {
         bingoListCounter = 0;
     }
-    
+
     var num =  totalBingoNumbers()[bingoListCounter++];
     var paddednum =  pad2(num);
-    return "<SPAN id='bingo" + num + "' class='bingoNumberCalled'>" + paddednum + "</SPAN>";
+    return "<SPAN id='bingoNumberCalledID-" + num + "' class='bingoNumberNotCalled'>" + paddednum + "</SPAN>";
     //return pad2(totalBingoNumbers()[bingoListCounter++]);
 });
 
@@ -166,15 +172,15 @@ export function allBingoNumbers()
 // returns an array all 75 bingo numbers in a randomizes order
 export function randomizeBingoNumbers()
 {
-   var bingoNumbers = allBingoNumbers();
+    var bingoNumbers = allBingoNumbers();
 
-   for (var idx = 1; idx<=75; idx++)
-   {
+    for (var idx = 1; idx<=75; idx++)
+    {
         var swap =  Math.floor (Math.random() * (75 - 1) + 1);
         var placeholder = bingoNumbers[idx];
         bingoNumbers[idx] = bingoNumbers[swap];
         bingoNumbers[swap] = placeholder;
-   }
+    }
 
     return bingoNumbers;
 }
@@ -183,7 +189,7 @@ export function randomizeBingoNumbers()
 
 
 /* **********************************************************************
-        create a virtual bingo jar of 1-75 bingo numbers
+ create a virtual bingo jar of 1-75 bingo numbers
  ************************************************************************/
 
 // A virtual jar of 75 bingo balls.
@@ -195,7 +201,7 @@ var jarOfRandomBingoNumbers = randomizeBingoNumbers();
 // Each time a bingo bingo ball is picked from the virtual jar 'jarOfRandomBingoNumbers',
 // the var "bingoBallPickedFromJar' is  incremented by one. 'bingoBallPickedFromJar; is used as index pointer
 // to the next ball to be picked from the array of randomized bingo numbers
-var bingoBallPickedFromJar = 1;
+export var bingoBallPickedFromJar = 1;
 
 
 
@@ -236,16 +242,35 @@ export function sleep(delay)
 
 export function resetBingoCard()
 {
-   
-    $("cardButtonId-").css("notSelected");
-
+  //bingoNumberCalledID
+    $('[id^=cardButtonId]').removeClass("selected");
+    $('[id^=cardButtonId]').addClass("notSelected");
 }
 
 
 
+export function resetBingoNumbersCalled()
+{
+    $('[id^=bingoNumberCalledID]').removeClass("bingoNumberCalled");
+    $('[id^=bingoNumberCalledID]').addClass("bingoNumberNotCalled");
+}
+
+export function resetGame()
+{
+    clearInterval(main.gameInstance);
+    bingoBallPickedFromJar = 0;
+    resetBingoCard();
+    resetBingoNumbersCalled();
+    document.getElementById("startButton").click();
+    document.getElementById("startButton").innerHTML ="Start Button";
+    document.getElementById("pickedBingoBallID").innerHTML ="00";
+    document.getElementById("resetButtonID").disabled = true;
+
+}
+
 Template.registerHelper('isLoggedIn', function()
 {
-   // console.log("Meteor.user(): " + Meteor.user());
+    // console.log("Meteor.user(): " + Meteor.user());
     return Meteor.user() == null;
 });
 

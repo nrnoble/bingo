@@ -10,9 +10,10 @@ import { getNextBingoNumberPicked } from './globalHelpers.js';
 import { Meteor } from 'meteor/meteor';
 import { sleep } from './globalHelpers.js';
 import './main.html';
+import * as helper from './globalHelpers.js';
 
 // continuely check if user us logged in
-var loginCheckloopID = setInterval(loginCheck,1000);
+// var loginCheckloopID = setInterval(loginCheck,1000);
 
 // userIsLoggedIn is a global variable that returns true if a user is logged in.
 var userIsLoggedIn = false;
@@ -22,21 +23,23 @@ Meteor.subscribe('userData');
 userData = new Mongo.Collection('userData');
 
 
-function loginCheck()
-{
 
-    if (Meteor.user() != null)
-    {
-        userIsLoggedIn = true;
-        //console.log("user is logged in");
-    }
-    else
-    {
-        userIsLoggedIn = false;
-        //console.log("user is not logged in");
-    }
 
-}
+// function loginCheck()
+// {
+//
+//     if (Meteor.user() != null)
+//     {
+//         userIsLoggedIn = true;
+//         //console.log("user is logged in");
+//     }
+//     else
+//     {
+//         userIsLoggedIn = false;
+//         //console.log("user is not logged in");
+//     }
+//
+// }
 
 Accounts.ui.config({
     passwordSignupFields: 'EMAIL_ONLY'
@@ -48,9 +51,7 @@ Template.gameReset.events({
 
     'click button'(event, instance)
     {
-
-        $('[id^=cardButtonId]').removeClass("selected");
-        $('[id^=cardButtonId]').addClass("notSelected");
+        helper.resetGame();
     }
 
 });
@@ -79,6 +80,7 @@ Template.startGame.onCreated(function startGameOnCreated()
     // counter starts at 0
     this.pickedBingoNumber = new ReactiveVar(0);
     this.counter = new ReactiveVar(0);
+
 });
 
 Template.pickedBingoBall.onCreated(function pickedBingoBallOnCreated()
@@ -108,7 +110,7 @@ Template.pickedBingoBall.helpers({
 
 
 // runStatus toggles the game between run and pause.
-var runStatus = false;
+export var runStatus = false;
 
 //
 var startButtonInstance = null;
@@ -118,7 +120,7 @@ var startButtonInstance = null;
 var PICK_TIMER = 5000;
 
 // gameInstance holds value for the interval timer
-var gameInstance = null;
+export var gameInstance = null;
 
 Template.startGame.events({
     
@@ -162,6 +164,7 @@ function startButton(instance)
     var timerDelay = document.getElementById("pickTimerDelay").value;
     //console.log("timerDelay: " + timerDelay);
     // document.getElementById("startButton").disabled = true;
+    document.getElementById("resetButtonID").disabled = false;
 
 
     //var myVar = setInterval(myTimer ,1000);
@@ -194,20 +197,22 @@ function startButton(instance)
 // gameLoop is called by setInterval which then executes every X seconds
 function gameLoop(pause, instance )
 {
-   // console.log("entering function gameLoop");
+    console.log("entering function gameLoop");
 
-    if (!userIsLoggedIn)
-    {
-        startButton(startButtonInstance);
-    }
+    // if (!userIsLoggedIn)
+    // {
+    //     startButton(startButtonInstance);
+    // }
 
     var pickedNumber = getNextBingoNumberPicked(true);
     var id = pickedNumber;
 
-        $('#bingo' + id).css("background-color", "yellow");
-        $('#pickedBingoBall').html(pickedNumber);
+       // $('#bingoNumberCalledID-' + id).css("background-color", "yellow");
+        $('#bingoNumberCalledID-' + id).removeClass("bingoNumberNotCalled");
+        $('#bingoNumberCalledID-' + id).addClass("bingoNumberCalled");
+        $('#pickedBingoBallID').html(pickedNumber);
 
-    //console.log("exiting function gameLoop");
+    console.log("exiting function gameLoop");
 }
 
 

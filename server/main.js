@@ -8,9 +8,11 @@ import { bingoCardColumn_2 } from '../data/bingodata.js';
 import { bingoCardColumn_3 } from '../data/bingodata.js';
 import { bingoCardColumn_4 } from '../data/bingodata.js';
 import { bingoCardColumn_5 } from '../data/bingodata.js';
+import { jarOfRandomBingoNumbers } from '../data/bingocallednumbers.js';
 //import { bookmarksDummyData } from '../collections.js/collections.js.js';
 
 
+var bingoNumberCounter = 0;
 
 export var gbingoCardNumbers =[];
 export var myFooTest_1 = "Test";
@@ -39,6 +41,8 @@ Accounts.onCreateUser(function(option, user) {
 
 
 
+
+
 // Meteor.publish('pfoo', function tasksPublication()
 // {
 //     return myFooTest_1;
@@ -46,7 +50,7 @@ Accounts.onCreateUser(function(option, user) {
 
 Meteor.startup(() =>
 {
-
+ // var intervalID =  setInterval(pickBingoNumber_test, 5000);
 
     var myFooTest_2 = "Test123";
 
@@ -69,20 +73,20 @@ Meteor.startup(() =>
      // var test4 = bingoCardColumn_2[4];
 
 // add column data
-    for (var i = 0; i < 5; i++)
-    {
-
-        gbingoCardNumbers[bingoCardColumn_1[i]];
-        gbingoCardNumbers[bingoCardColumn_2[i]];
-        gbingoCardNumbers[bingoCardColumn_3[i]];
-        gbingoCardNumbers[bingoCardColumn_4[i]];
-
-
-        // randomCardNumbers.insert(bingoCardColumn_2[i]);
-        // randomCardNumbers.insert(bingoCardColumn_3[i]);
-        // randomCardNumbers.insert(bingoCardColumn_4[i]);
-        // randomCardNumbers.insert(bingoCardColumn_5[i]);
-    }
+//     for (var i = 0; i < 5; i++)
+//     {
+//
+//         gbingoCardNumbers[bingoCardColumn_1[i]];
+//         gbingoCardNumbers[bingoCardColumn_2[i]];
+//         gbingoCardNumbers[bingoCardColumn_3[i]];
+//         gbingoCardNumbers[bingoCardColumn_4[i]];
+//
+//
+//         // randomCardNumbers.insert(bingoCardColumn_2[i]);
+//         // randomCardNumbers.insert(bingoCardColumn_3[i]);
+//         // randomCardNumbers.insert(bingoCardColumn_4[i]);
+//         // randomCardNumbers.insert(bingoCardColumn_5[i]);
+//     }
 });
 
 
@@ -99,3 +103,11 @@ Meteor.methods({
 })
 
 
+function pickBingoNumber_test()
+{
+    // console.log("Entering: pickBingoNumber_test()");
+    bingoNumberCounter++;
+    //console.log("bingoNumberCounter++: " + jarOfRandomBingoNumbers [bingoNumberCounter++]);
+    console.log("jarOfRandomBingoNumbers[" + bingoNumberCounter + "]: " + jarOfRandomBingoNumbers [bingoNumberCounter]);
+    // console.log("Exiting: pickBingoNumber_test()");
+}

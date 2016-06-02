@@ -62,3 +62,14 @@ td {
     text-align: center;
 
 }
+
+.bingoNumberCalled
+{
+    background-color: yellow;
+}
+
+
+.bingoNumberNotCalled
+{
+    background-color: white;
+}

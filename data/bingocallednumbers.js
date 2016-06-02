@@ -39,3 +39,41 @@ function numberDrawn(low,high)
    // console.log("listOfNumbers: " + listOfNumbers);
     return listOfNumbers
 }
+
+/* **********************************************************************
+ create a virtual bingo jar of 1-75 bingo numbers
+ ************************************************************************/
+
+// A virtual jar of 75 bingo balls.
+export var jarOfRandomBingoNumbers = randomizeBingoNumbers();
+//console.log("Random Bingo Numbers: " + jarOfRandomBingoNumbers)
+//console.log("jarOfRandomBingoNumbers[0]: " + jarOfRandomBingoNumbers[0])
+
+// returns an array all 75 bingo numbers in a randomizes order
+export function randomizeBingoNumbers()
+{
+    var bingoNumbers = allBingoNumbers();
+
+    for (var idx = 1; idx<=75; idx++)
+    {
+        var swap =  Math.floor (Math.random() * (75 - 1) + 1);
+        var placeholder = bingoNumbers[idx];
+        bingoNumbers[idx] = bingoNumbers[swap];
+        bingoNumbers[swap] = placeholder;
+    }
+
+    return bingoNumbers;
+}
+
+// returns an array of all bingo numbers 1-75 in order
+export function allBingoNumbers()
+{
+    var bingoNumbers = [];
+    for (var i = 1; i <=75;i++)
+    {
+        bingoNumbers[i] = i;
+    }
+
+    return bingoNumbers;
+
+}
