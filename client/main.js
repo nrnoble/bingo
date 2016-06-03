@@ -150,19 +150,19 @@ function startButton(instance)
 
     startButtonInstance = instance;
     runStatus = !runStatus;
-    //$('#startButton').disabled = true;
-    //gameLoop (pause, instance);
+    // $('#startButton').disabled = true;
+    // gameLoop (pause, instance);
 
-    //document.getElementById("startButton").disabled = false;
+    // document.getElementById("startButton").disabled = false;
 
-    //var bingoNumber = $('#bingo'+ pickedNumber).css( "filter", "invert(100%)");
-    //$('#bingo'+pickedNumber).css( "border", "3px solid red" );
-    //$('#bingo'+pickedNumber).css( "background-color", "yellow" );
-    //$('#bingo'+id).css( "background-color", "yellow" );
-    //console.log("bingoNumber: " + '#bingo'+ pickedNumber);
-    //instance.pickedBingoNumber.set(pickedNumber);
+    // var bingoNumber = $('#bingo'+ pickedNumber).css( "filter", "invert(100%)");
+    // $('#bingo'+pickedNumber).css( "border", "3px solid red" );
+    // $('#bingo'+pickedNumber).css( "background-color", "yellow" );
+    // $('#bingo'+id).css( "background-color", "yellow" );
+    // console.log("bingoNumber: " + '#bingo'+ pickedNumber);
+    // instance.pickedBingoNumber.set(pickedNumber);
     var timerDelay = document.getElementById("pickTimerDelay").value;
-    //console.log("timerDelay: " + timerDelay);
+    // console.log("timerDelay: " + timerDelay);
     // document.getElementById("startButton").disabled = true;
     document.getElementById("resetButtonID").disabled = false;
 
@@ -199,10 +199,7 @@ function gameLoop(pause, instance )
 {
     console.log("entering function gameLoop");
 
-    // if (!userIsLoggedIn)
-    // {
-    //     startButton(startButtonInstance);
-    // }
+
 
     var pickedNumber = getNextBingoNumberPicked(true);
     var id = pickedNumber;
@@ -211,9 +208,37 @@ function gameLoop(pause, instance )
         $('#bingoNumberCalledID-' + id).removeClass("bingoNumberNotCalled");
         $('#bingoNumberCalledID-' + id).addClass("bingoNumberCalled");
         $('#pickedBingoBallID').html(pickedNumber);
+            clickNumberOnBingoCard (pickedNumber);
 
     console.log("exiting function gameLoop");
 }
+
+
+// used for automated testing. Click the current bingo number called if
+// it is on the current card
+function clickNumberOnBingoCard(currentBingoNumber)
+{
+       // $("#cardButtonId-" + currentBingoNumber).removeClass("notSelected");
+       // $("#cardButtonId-" + currentBingoNumber).addClass("selected");
+
+
+//        var item = $("#cardButtonId-" + currentBingoNumber).html();
+  //      console.log(item);
+
+     for (var idx = 0; idx < 25; idx++)
+    {
+         var element = $("#cardButtonId-" +idx);
+         var html = element.html();
+        if (html == currentBingoNumber)
+        {
+            element.removeClass("bingoNumberNotCalled");
+            element.addClass("bingoNumberCalled");
+            return;
+        }
+    }
+}
+
+
 
 
 // Returns 12 arrays of representing possible winning rows, columns, and diagonals.
