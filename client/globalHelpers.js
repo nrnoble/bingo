@@ -257,14 +257,17 @@ export function resetBingoNumbersCalled()
 
 export function resetGame()
 {
-    clearInterval(main.gameInstance);
-    bingoBallPickedFromJar = 0;
-    resetBingoCard();
-    resetBingoNumbersCalled();
-    document.getElementById("startButton").click();
-    document.getElementById("startButton").innerHTML ="Start Button";
-    document.getElementById("pickedBingoBallID").innerHTML ="00";
-    document.getElementById("resetButtonID").disabled = true;
+
+    location.reload();
+
+    // clearInterval(main.gameInstance);
+    // bingoBallPickedFromJar = 0;
+    // resetBingoCard();
+    // resetBingoNumbersCalled();
+    // document.getElementById("startButton").click();
+    // document.getElementById("startButton").innerHTML ="Start Button";
+    // document.getElementById("pickedBingoBallID").innerHTML ="00";
+    // document.getElementById("resetButtonID").disabled = true;
 
 }
 

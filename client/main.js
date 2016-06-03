@@ -130,7 +130,25 @@ Template.startGame.events({
     }
 });
 
+Template.btnbingo.events({
 
+    'click button'(event, instance)
+    {
+        var bingoWinner = verifyBingo();
+        if(bingoWinner)
+        {
+            console.log("bingo!!!!");
+            clearInterval(gameInstance);
+        }
+    }
+
+});
+
+
+Template.btnbingo.helpers({
+
+
+})
 
 var autoSelect = true;
 var autoValidateJackpot = true;
@@ -224,16 +242,12 @@ function gameLoop(pause, instance )
 
         if(autoValidateJackpot)
         {
-            verifyBingo();
-            bingoWinner = false;
-            //console.log("About to enter verifyBingo()");
+
             bingoWinner = verifyBingo();
-            console.log("Exited from: verifyBingo()");
             if(bingoWinner)
             {
                 console.log("bingo!!!!");
                 clearInterval(gameInstance);
-                // alert("Bingo!!!");
             }
         }
 
