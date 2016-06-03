@@ -174,7 +174,8 @@ function startButton(instance)
         // console.log("BEFORE gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
         gameInstance = setInterval(gameLoop, timerDelay);
         // console.log("AFTER gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
-
+        $("#winningNumbersId").innerHTML =  "00 00 00 00 00";
+        document.getElementById("winningNumbersId").innerHTML =  "00 00 00 00 00";
         document.getElementById("startButton").innerHTML = "Running. Click to Pause";
     }
     else
@@ -197,7 +198,7 @@ function startButton(instance)
 // gameLoop is called by setInterval which then executes every X seconds
 function gameLoop(pause, instance )
 {
-    console.log("entering function gameLoop");
+    console.log("Entering: function gameLoop");
 
 
 
@@ -210,7 +211,7 @@ function gameLoop(pause, instance )
         $('#pickedBingoBallID').html(pickedNumber);
             clickNumberOnBingoCard (pickedNumber);
 
-    console.log("exiting function gameLoop");
+    console.log("Exiting: function gameLoop()");
 }
 
 
@@ -218,12 +219,7 @@ function gameLoop(pause, instance )
 // it is on the current card
 function clickNumberOnBingoCard(currentBingoNumber)
 {
-       // $("#cardButtonId-" + currentBingoNumber).removeClass("notSelected");
-       // $("#cardButtonId-" + currentBingoNumber).addClass("selected");
 
-
-//        var item = $("#cardButtonId-" + currentBingoNumber).html();
-  //      console.log(item);
 
      for (var idx = 0; idx < 25; idx++)
     {
@@ -233,6 +229,17 @@ function clickNumberOnBingoCard(currentBingoNumber)
         {
             element.removeClass("bingoNumberNotCalled");
             element.addClass("bingoNumberCalled");
+            bingoWinner = false;
+            //console.log("About to enter verifyBingo()");
+            bingoWinner = verifyBingo();
+            console.log("Exited from: verifyBingo()");
+            if(bingoWinner)
+            {
+                console.log("bingo!!!!");
+                clearInterval(gameInstance);
+               // alert("Bingo!!!");
+            }
+
             return;
         }
     }
@@ -245,8 +252,9 @@ function clickNumberOnBingoCard(currentBingoNumber)
 // 5 columns
 // 5 rows
 // 2 diagonals
-export function verifyBingo()
+export function winningCombos()
 {
+    console.log("Entering: function winningCombos()");
     var bingo = [12];
     bingo[0] = [01, 02, 03, 04, 05];
     bingo[1] = [06, 07, 8, 9, 10];
@@ -262,10 +270,113 @@ export function verifyBingo()
 
     bingo[10] = [05, 9, 13, 17, 21];
     bingo[11] = [01, 07, 13, 19, 25];
-
+    console.log("Exiting: function winningCombos()");
     return bingo;
 }
 
+
+// Verify a winning bingo sequence. The bingo card must contain 5 called numbers
+// in a winning bingo sequence;
+export function verifyBingo()
+{
+    console.log("Entering: function verifyBingo()");
+    // An array of 12 winning combination of 5 possible numbers
+    var bingo = winningCombos();
+
+
+    // loop throw the 12 combinations
+    for (var idx = 0; idx < 12; idx++)
+    {
+        var log = "idx: " + idx;
+        console.log(log);
+        //loop through the 5 numbers verifying that they been called and selected on the card.
+        var success = true;
+        var winningNumbers = [5];
+        var winningNumberIdx = 0;
+        for (var idx_2 = 0; idx_2 < 5; idx_2++)
+        {
+
+            console.log("idx_2: " + idx_2);
+            var cardButtonId = bingo[idx][idx_2]-1;
+            console.log("["+ idx +"][" + idx_2 + "] cardButtonId: " + cardButtonId);
+            var element = $("#cardButtonId-" + cardButtonId);
+            var cardBingoNumber  = element.html();
+           // console.log("cardButtonId: " + cardButtonId);
+           // console.log("cardBingoNumber: " + cardBingoNumber);
+            // TODO: verify that bingoNumberButton has been selected, if not selected, then exit.
+            //var buttonSelected = isBingoButtonSelected(cardBingoNumber);
+            //var buttonSelected = true;
+
+            if (hasNumberBeenCalled(cardBingoNumber) == false)
+            {
+                //console.log("hasNumberBeenCalled(" + cardBingoNumber + ") == false, Break inner loop");
+                success = false;
+                break;
+            }
+            else
+            {
+                winningNumbers[winningNumberIdx++] = cardBingoNumber;
+                //console.log("hasNumberBeenCalled(" + cardBingoNumber + ") == true, continue inner loop");
+            }
+        }
+            // Bingo Jackpot!!!
+            // found a sequence of 5 bingo numbers in a row\column\diagonal
+            if (success)
+            {
+                console.log("returning true. Valid sequence");
+                console.log("winningNumbers: " + winningNumbers);
+                $("#winningNumbersId").innerHTML = winningNumbers;
+                document.getElementById("winningNumbersId").innerHTML =  winningNumbers;
+                return true;
+            }
+    }
+
+    console.log("Exiting: function verifyBingo()");
+    // when reaching this point, no sequence of 5 called numbers has been found and\or
+    // player missed selecting a valid number on the bingo card
+    return false;
+}
+
+
+// compare number to the list of bingo numbers that have already been called.
+// return true if number has been called.
+export function hasNumberBeenCalled(bingoNumber)
+{
+    //console.log("Entering: function hasNumberBeenCalled(bingoNumber)");
+    // get the list of bingo numbers that have been called, ignore the numbers
+    // that have not yet been called.
+    var currentBingoNumbersCalled =  helper.jarOfRandomBingoNumbers;
+    var length = currentBingoNumbersCalled.length;
+
+    //console.log("bingoBallPickedFromJar: " + helper.bingoBallPickedFromJar);
+    for (var idx = 0; idx < helper.bingoBallPickedFromJar; idx++)
+    {
+        var bingNumberCalled = helper.jarOfRandomBingoNumbers[idx];
+        //console.log("bingoNumber(" + bingoNumber + ") == bingNumberCalled(" + bingNumberCalled + ")");
+        if (bingoNumber == bingNumberCalled)
+        {
+            //console.log("hasNumberBeenCalled(): return true");
+            //console.log("Exiting: function hasNumberBeenCalled(bingoNumber)");
+            return true;
+        }
+    }
+
+    //console.log("hasNumberBeenCalled(): return false");
+    //console.log("Exiting: function hasNumberBeenCalled(bingoNumber)");
+    return false;
+}
+
+
+export function isBingoButtonSelected(bingoButtonIdNumber)
+{
+    var element = $("#cardButtonId-" + bingoButtonIdNumber).hasClass("selected");
+    console.log("bingoButtonIdNumber: " + bingoButtonIdNumber);
+    console.log("element.hasClass('selected'): " + element.hasClass("selected"));
+
+
+    //return element.hasClass("selected");
+    return result;
+}
 
 
 

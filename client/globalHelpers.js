@@ -193,7 +193,7 @@ export function randomizeBingoNumbers()
  ************************************************************************/
 
 // A virtual jar of 75 bingo balls.
-var jarOfRandomBingoNumbers = randomizeBingoNumbers();
+export var jarOfRandomBingoNumbers = randomizeBingoNumbers();
 //console.log("Random Bingo Numbers: " + jarOfRandomBingoNumbers)
 //console.log("jarOfRandomBingoNumbers[0]: " + jarOfRandomBingoNumbers[0])
 
