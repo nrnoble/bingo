@@ -105,12 +105,13 @@ May 2016
                 <form>
                     <h3>Testing</h3>
                     Pick Delay<br>
-                    <input id="pickTimerDelay" type = "text" name="pickTimerDelay" value="3000">
+                    <input id="pickTimerDelay" type = "text" name="pickTimerDelay" value="100">
                 </form>
+                {{>autoSelect}}
                 <br>
                 {{>gameReset}}
                 {{>btnbingo}}<br><br>
-                <div id ="winningNumbersId"></div>
+
             </div>
 
         </div>
@@ -121,6 +122,12 @@ May 2016
 
 <template name="pickedBingoBall">
     <button id = "pickedBingoBall" type="button" class="btn btn-lg">{{pickedBingoNumber}}</button>
+</template>
+
+<template name="autoSelect">
+    <label><input id ="autoSelectId" type="checkbox" value="true" checked> Auto Select Bingo Numbers</label>
+    <label><input id ="autoValidateBingoID" type="checkbox" value="true" checked> Auto Validate Bingo Jackpot</label>
+    <div id ="winningNumbersId">00 00 00 00 00</div>
 </template>
 
 

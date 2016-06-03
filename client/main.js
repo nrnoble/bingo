@@ -131,6 +131,10 @@ Template.startGame.events({
 });
 
 
+
+var autoSelect = true;
+var autoValidateJackpot = true;
+
 function startButton(instance)
 {
     console.log("Entering Template.startGame.events");
@@ -162,6 +166,7 @@ function startButton(instance)
     // console.log("bingoNumber: " + '#bingo'+ pickedNumber);
     // instance.pickedBingoNumber.set(pickedNumber);
     var timerDelay = document.getElementById("pickTimerDelay").value;
+
     // console.log("timerDelay: " + timerDelay);
     // document.getElementById("startButton").disabled = true;
     document.getElementById("resetButtonID").disabled = false;
@@ -174,7 +179,7 @@ function startButton(instance)
         // console.log("BEFORE gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
         gameInstance = setInterval(gameLoop, timerDelay);
         // console.log("AFTER gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
-        $("#winningNumbersId").innerHTML =  "00 00 00 00 00";
+        //$("#winningNumbersId").innerHTML =  "00 00 00 00 00";
         document.getElementById("winningNumbersId").innerHTML =  "00 00 00 00 00";
         document.getElementById("startButton").innerHTML = "Running. Click to Pause";
     }
@@ -201,6 +206,8 @@ function gameLoop(pause, instance )
     console.log("Entering: function gameLoop");
 
 
+    autoSelect = $("#autoSelectId").is(':checked');
+    autoValidateJackpot = $("#autoValidateBingoID").is(':checked');
 
     var pickedNumber = getNextBingoNumberPicked(true);
     var id = pickedNumber;
@@ -209,7 +216,26 @@ function gameLoop(pause, instance )
         $('#bingoNumberCalledID-' + id).removeClass("bingoNumberNotCalled");
         $('#bingoNumberCalledID-' + id).addClass("bingoNumberCalled");
         $('#pickedBingoBallID').html(pickedNumber);
-            clickNumberOnBingoCard (pickedNumber);
+
+        if (autoSelect == true)
+        {
+            clickNumberOnBingoCard(pickedNumber);
+        }
+
+        if(autoValidateJackpot)
+        {
+            verifyBingo();
+            bingoWinner = false;
+            //console.log("About to enter verifyBingo()");
+            bingoWinner = verifyBingo();
+            console.log("Exited from: verifyBingo()");
+            if(bingoWinner)
+            {
+                console.log("bingo!!!!");
+                clearInterval(gameInstance);
+                // alert("Bingo!!!");
+            }
+        }
 
     console.log("Exiting: function gameLoop()");
 }
@@ -229,16 +255,16 @@ function clickNumberOnBingoCard(currentBingoNumber)
         {
             element.removeClass("bingoNumberNotCalled");
             element.addClass("bingoNumberCalled");
-            bingoWinner = false;
-            //console.log("About to enter verifyBingo()");
-            bingoWinner = verifyBingo();
-            console.log("Exited from: verifyBingo()");
-            if(bingoWinner)
-            {
-                console.log("bingo!!!!");
-                clearInterval(gameInstance);
-               // alert("Bingo!!!");
-            }
+            // bingoWinner = false;
+            // //console.log("About to enter verifyBingo()");
+            // bingoWinner = verifyBingo();
+            // console.log("Exited from: verifyBingo()");
+            // if(bingoWinner)
+            // {
+            //     console.log("bingo!!!!");
+            //     clearInterval(gameInstance);
+            //    // alert("Bingo!!!");
+            // }
 
             return;
         }
