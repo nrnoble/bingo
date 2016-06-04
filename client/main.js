@@ -134,15 +134,41 @@ Template.btnbingo.events({
 
     'click button'(event, instance)
     {
-        var bingoWinner = verifyBingo();
-        if(bingoWinner)
+        var winningBingoNumbers = verifyBingo();
+        if(winningBingoNumbers != null)
         {
-            console.log("bingo!!!!");
             clearInterval(gameInstance);
+            console.log("bingo!!!!");
+            var allPossibleWinningCombos = winningCombos();
+            //winningBingoNumbers = winningBingoNumbers - 1;
+            var winningCombo = allPossibleWinningCombos[winningBingoNumbers];
+            console.log("winningCombo: " + winningCombo);
+            winningSequenceColor(winningBingoNumbers);
+            document.getElementById("winningNumbersId2").innerHTML =  "Jackpot Numbers: [" + winningBingoNumbers + "] " + winningCombo;
         }
     }
 
 });
+
+
+// Change the color of the winning number sequence on bingo card
+export function winningSequenceColor(sequenceNumber)
+{
+
+    var allPossibleWinningCombos = winningCombos();
+    var winningCombo = allPossibleWinningCombos[sequenceNumber];
+
+
+    //document.getElementById("winningNumbersId").innerHTML =  "Jackpot Numbers: " + winningCombo;
+    for (var idx = 0; idx < 5; idx++)
+    {
+        var id = "#cardButtonId-" + (winningCombo[idx]-1);
+       // $(id).removeClass("selected");
+         $(id).css("background-color", "blue");
+    }
+
+}
+
 
 
 Template.btnbingo.helpers({
@@ -243,11 +269,13 @@ function gameLoop(pause, instance )
         if(autoValidateJackpot)
         {
 
-            bingoWinner = verifyBingo();
-            if(bingoWinner)
+            var winningBingoNumbers = verifyBingo();
+            if(winningBingoNumbers != null)
             {
-                console.log("bingo!!!!");
                 clearInterval(gameInstance);
+                winningSequenceColor(winningBingoNumbers);
+                console.log("bingo!!!!");
+
             }
         }
 
@@ -294,7 +322,7 @@ function clickNumberOnBingoCard(currentBingoNumber)
 // 2 diagonals
 export function winningCombos()
 {
-    console.log("Entering: function winningCombos()");
+    //console.log("Entering: function winningCombos()");
     var bingo = [12];
     bingo[0] = [01, 02, 03, 04, 05];
     bingo[1] = [06, 07, 8, 9, 10];
@@ -310,7 +338,7 @@ export function winningCombos()
 
     bingo[10] = [05, 9, 13, 17, 21];
     bingo[11] = [01, 07, 13, 19, 25];
-    console.log("Exiting: function winningCombos()");
+   // console.log("Exiting: function winningCombos()");
     return bingo;
 }
 
@@ -336,9 +364,9 @@ export function verifyBingo()
         for (var idx_2 = 0; idx_2 < 5; idx_2++)
         {
 
-            console.log("idx_2: " + idx_2);
+            //console.log("idx_2: " + idx_2);
             var cardButtonId = bingo[idx][idx_2]-1;
-            console.log("["+ idx +"][" + idx_2 + "] cardButtonId: " + cardButtonId);
+           // console.log("["+ idx +"][" + idx_2 + "] cardButtonId: " + cardButtonId);
             var element = $("#cardButtonId-" + cardButtonId);
             var cardBingoNumber  = element.html();
            // console.log("cardButtonId: " + cardButtonId);
@@ -363,18 +391,19 @@ export function verifyBingo()
             // found a sequence of 5 bingo numbers in a row\column\diagonal
             if (success)
             {
+                winningNumberIdx--; // need to reduce index by one
                 console.log("returning true. Valid sequence");
                 console.log("winningNumbers: " + winningNumbers);
                 $("#winningNumbersId").innerHTML = winningNumbers;
-                document.getElementById("winningNumbersId").innerHTML =  winningNumbers;
-                return true;
+                document.getElementById("winningNumbersId").innerHTML = "[" + idx + "]" + winningNumbers;
+                return idx;
             }
     }
 
     console.log("Exiting: function verifyBingo()");
     // when reaching this point, no sequence of 5 called numbers has been found and\or
     // player missed selecting a valid number on the bingo card
-    return false;
+    return null;
 }
 
 

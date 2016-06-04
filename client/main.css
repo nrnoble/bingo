@@ -38,6 +38,16 @@ button
 
 }
 
+.winningNumbers
+{
+    background-color:mediumpurple;
+    border: 1px solid black;
+    border-radius: 12px;
+    font-size: 32px;
+}
+
+
+
 h1
 {
     color: black;
