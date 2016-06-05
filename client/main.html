@@ -5,7 +5,7 @@ Meteor Team project: Bingo
 May 2016
 -->
 <head>
-  <title>Popcorn Bingo</title>
+    <title>Popcorn Bingo</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@ May 2016
     </div>
     <div class="navbar-collapse collapse">
         <!--<ul class="nav navbar-nav">-->
-            <!--<li class="active"><a href="#">Link</a></li>-->
+        <!--<li class="active"><a href="#">Link</a></li>-->
         <!--</ul>-->
         <ul class="nav navbar-nav navbar-right">
             {{> loginButtons}} <!-- here -->
@@ -32,53 +32,53 @@ May 2016
     </div>
 </div>
 
-    <div id = "jumbotron" class="jumbotron">
-        <h1>Popcorn Bingo</h1>
-        {{ foo }}
- </div>
+<div id = "jumbotron" class="jumbotron">
+    <h1>Popcorn Bingo</h1>
+    {{ foo }}
+</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p align="center">
-                        <div id="pickedBingoBallID" class="btn btn-lg">00</div><br>
-                            {{>bingoNumberList}}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p align="center">
+                    <div id="pickedBingoBallID" class="btn btn-lg">00</div><br>
+                    {{>bingoNumberList}}
 
-                        </p>
-                    </div>
+                    </p>
                 </div>
             </div>
-
-                <div class="col-xs-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                           <p align="center">
-
-                               {{> bingocard}}
-
-                           </p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xs-4">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <p align="center">
-
-                                {{> startGame}}<br>
-
-                            </p>
-                        </div>
-                    </div>
-                    {{>testing}}
-            </div>
-
         </div>
+
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p align="center">
+
+                        {{> bingocard}}
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p align="center">
+
+                        {{> startGame}}<br>
+
+                    </p>
+                </div>
+            </div>
+            {{>testing}}
+        </div>
+
     </div>
+</div>
 
 
 </body>
@@ -146,53 +146,53 @@ May 2016
 
         </tr>
         </thead>
-            <tbody>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            <tr>
-                <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
-            </tr>
-            </tbody>
+        <tbody>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        <tr>
+            <td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td><td>{{{bingolistHelper}}}</td>
+        </tr>
+        </tbody>
     </table>
 </template>
 
