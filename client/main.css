@@ -23,7 +23,7 @@ button
 {
     background-color: lightgray;
     border: 1px solid black;
-    border-radius: 27px;
+    border-radius: 5px;
     font-size: 30px;
 
 }
@@ -33,7 +33,7 @@ button
 {
     background-color: yellow;
     border: 1px solid black;
-    border-radius: 27px;
+    border-radius: 5px;
     font-size: 30px;
 
 }
