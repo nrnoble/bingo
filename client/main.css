@@ -23,8 +23,8 @@ button
 {
     background-color: lightgray;
     border: 1px solid black;
-    border-radius: 12px;
-    font-size: 32px;
+    border-radius: 27px;
+    font-size: 30px;
 
 }
 
@@ -33,20 +33,10 @@ button
 {
     background-color: yellow;
     border: 1px solid black;
-    border-radius: 12px;
-    font-size: 32px;
+    border-radius: 27px;
+    font-size: 30px;
 
 }
-
-.winningNumbers
-{
-    background-color:mediumpurple;
-    border: 1px solid black;
-    border-radius: 12px;
-    font-size: 32px;
-}
-
-
 
 h1
 {
@@ -63,23 +53,12 @@ h1
 .inverted {
     filter: invert(100%);
 }
-
-.th
-{
-    text-align: right;
-}
-td {
-    text-align: center;
-
-}
-
-.bingoNumberCalled
-{
-    background-color: yellow;
+h2{
+    letter-spacing: 60px;
 }
 
 
-.bingoNumberNotCalled
-{
-    background-color: white;
-}
+
+
+
+
