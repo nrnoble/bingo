@@ -20,7 +20,6 @@
 
 <template name="bingoRow">
 
-
     {{>bingoColumn_1}}{{>bingoColumn_2}}{{>bingoColumn_3}}{{>bingoColumn_4}}{{>bingoColumn_5}}<br>
 
 </template>
@@ -28,8 +27,7 @@
 
 <template name="bingoColumn_1">
 
-    <button id="cardButtonId-{{getBingoCardButtonCounter}}" class="{{toggle}}">{{getBingoCardNumbersInOrder}}</button>
-
+    <button id="cardButtonId-{{buttonId}}" class="{{toggle}}">{{getBingoCardNumbersInOrder}}</button>
 
 </template>
 
@@ -58,7 +56,6 @@
 <template name="bingoColumn_5">
 
     <button id="cardButtonId-{{getBingoCardButtonCounter}}" class="{{toggle}}">{{getBingoCardNumbersInOrder}}</button>
-
 
 </template>
 

@@ -21,6 +21,7 @@ var userIsLoggedIn = false;
 //pull down some published data from the server
 Meteor.subscribe('userData');
 userData = new Mongo.Collection('userData');
+gamedData = new Mongo.Collection('gamedData');
 
 
 
@@ -122,6 +123,7 @@ var PICK_TIMER = 5000;
 // gameInstance holds value for the interval timer
 export var gameInstance = null;
 
+
 Template.startGame.events({
     
     'click button'(event, instance) 
@@ -129,6 +131,7 @@ Template.startGame.events({
         startButton(instance);
     }
 });
+
 
 Template.btnbingo.events({
 
@@ -178,6 +181,7 @@ Template.btnbingo.helpers({
 
 var autoSelect = true;
 var autoValidateJackpot = true;
+
 
 function startButton(instance)
 {
@@ -295,8 +299,8 @@ function clickNumberOnBingoCard(currentBingoNumber)
          var html = element.html();
         if (html == currentBingoNumber)
         {
-            element.removeClass("bingoNumberNotCalled");
-            element.addClass("bingoNumberCalled");
+            element.removeClass("notSelected");
+            element.addClass("selected");
             // bingoWinner = false;
             // //console.log("About to enter verifyBingo()");
             // bingoWinner = verifyBingo();

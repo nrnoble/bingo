@@ -9,6 +9,7 @@ import { bingoCardColumn_3 } from '../data/bingodata.js';
 import { bingoCardColumn_4 } from '../data/bingodata.js';
 import { bingoCardColumn_5 } from '../data/bingodata.js';
 import { jarOfRandomBingoNumbers } from '../data/bingocallednumbers.js';
+import * as data from '../data/bingocallednumbers.js';
 //import { bookmarksDummyData } from '../collections.js/collections.js.js';
 
 
@@ -50,7 +51,7 @@ Accounts.onCreateUser(function(option, user) {
 
 Meteor.startup(() =>
 {
- // var intervalID =  setInterval(pickBingoNumber_test, 5000);
+  var intervalID =  setInterval(pickBingoNumber_test, 5000);
 
     var myFooTest_2 = "Test123";
 
@@ -94,10 +95,11 @@ Meteor.startup(() =>
 // This used for testing only. 
 Meteor.methods({
 
-   serverVarTest: function(){
+   serverVarTest: function()
+   {
 
-       console.log("Server test1");
-       return "test1234";
+       return bingoNumberCounter;
+
    }
 
 })
@@ -106,8 +108,15 @@ Meteor.methods({
 function pickBingoNumber_test()
 {
     // console.log("Entering: pickBingoNumber_test()");
+    if (bingoNumberCounter > 74)
+    {
+        bingoNumberCounter = 0;
+        data.jarOfRandomBingoNumbers = data.randomizeBingoNumbers();
+    }
+
     bingoNumberCounter++;
     //console.log("bingoNumberCounter++: " + jarOfRandomBingoNumbers [bingoNumberCounter++]);
-    console.log("jarOfRandomBingoNumbers[" + bingoNumberCounter + "]: " + jarOfRandomBingoNumbers [bingoNumberCounter]);
+    console.log("data.jarOfRandomBingoNumbers[" + bingoNumberCounter + "]: " + data.jarOfRandomBingoNumbers [bingoNumberCounter]);
+
     // console.log("Exiting: pickBingoNumber_test()");
 }

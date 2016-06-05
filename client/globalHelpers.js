@@ -78,10 +78,17 @@ Template.registerHelper('getBingoCardNumbersInOrder', function()
 
 
 //returns the current bing card button counter which is used to create the HTML button ID
-Template.registerHelper('getBingoCardButtonCounter', function()
+Template.registerHelper('getBingoCardButtonCounter', function(fooThis)
 {
-    return bingoCardButtonCounter;
+    console.log("before: this.cardButtonId: " + this.cardButtonId);
+    if (this.cardButtonId == null)
+    {
+        this.cardButtonId = bingoCardButtonCounter;
+    }
+    console.log("After: this.cardButtonId: " + this.cardButtonId);
+    return this.cardButtonId;
 });
+
 
 
 // returns an array of 5 unique random numbers between low and high parameters
@@ -297,14 +304,14 @@ Template.registerHelper('xxtoggle', function(currentObject)
     //bingoCardID-1
 
     //return "notSelected";
-    //console.log("currentObject.toggle: " this);
+    //console.log("currentObject.toggle_1: " this);
     //console.log("this: " + this);
-    if (this.toggle == true)
+    if (this.toggle_1 == true)
     {
-        return Template.instance().toggle.get();
+        return Template.instance().toggle_1.get();
     }
 
-    return Template.instance().toggle.get();
+    return Template.instance().toggle_1.get();
 
 });
 
