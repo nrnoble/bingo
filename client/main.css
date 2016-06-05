@@ -23,8 +23,8 @@ button
 {
     background-color: lightgray;
     border: 1px solid black;
-    border-radius: 5px;
-    font-size: 30px;
+    border-radius: 12px;
+    font-size: 32px;
 
 }
 
@@ -33,10 +33,20 @@ button
 {
     background-color: yellow;
     border: 1px solid black;
-    border-radius: 5px;
-    font-size: 30px;
+    border-radius: 12px;
+    font-size: 32px;
 
 }
+
+.winningNumbers
+{
+    background-color:mediumpurple;
+    border: 1px solid black;
+    border-radius: 12px;
+    font-size: 32px;
+}
+
+
 
 h1
 {
@@ -58,7 +68,13 @@ h2{
 }
 
 
+.bingoNumberCalled
+{
+    background-color: yellow;
+}
 
 
-
-
+.bingoNumberNotCalled
+{
+    background-color: white;
+}
