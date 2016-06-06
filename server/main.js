@@ -51,7 +51,7 @@ Accounts.onCreateUser(function(option, user) {
 
 Meteor.startup(() =>
 {
-  var intervalID =  setInterval(pickBingoNumber_test, 5000);
+    // var intervalID =  setInterval(pickBingoNumber_test, 5000);
 
     var myFooTest_2 = "Test123";
 

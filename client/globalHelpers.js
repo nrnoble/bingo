@@ -77,6 +77,43 @@ Template.registerHelper('getBingoCardNumbersInOrder', function()
 
 
 
+
+ export function getThisButtonID(Template)
+    {
+        if ( Template.instance().cardButtonId.get() == null)
+        {
+
+            Template.instance().cardButtonId.set(bingoCardButtonCounter);
+
+        }
+
+        return Template.instance().cardButtonId.get();
+
+    }
+
+
+
+
+
+    // Toggle the bingo style. This will switch css styles...
+    Template.bingoColumn_3.helpers(
+        {
+            toggle()
+            {
+
+                if (this.toggle == true)
+                {
+                    return Template.instance().toggle.get();
+                }
+
+                return Template.instance().toggle.get();
+            }
+        });
+
+
+
+
+
 //returns the current bing card button counter which is used to create the HTML button ID
 Template.registerHelper('getBingoCardButtonCounter', function(fooThis)
 {
@@ -304,14 +341,14 @@ Template.registerHelper('xxtoggle', function(currentObject)
     //bingoCardID-1
 
     //return "notSelected";
-    //console.log("currentObject.toggle_1: " this);
+    //console.log("currentObject.toggle: " this);
     //console.log("this: " + this);
-    if (this.toggle_1 == true)
+    if (this.toggle == true)
     {
-        return Template.instance().toggle_1.get();
+        return Template.instance().toggle.get();
     }
 
-    return Template.instance().toggle_1.get();
+    return Template.instance().toggle.get();
 
 });
 
