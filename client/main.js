@@ -147,7 +147,7 @@ Template.btnbingo.events({
             var winningCombo = allPossibleWinningCombos[winningBingoNumbers];
             console.log("winningCombo: " + winningCombo);
             winningSequenceColor(winningBingoNumbers);
-            document.getElementById("winningNumbersId2").innerHTML =  "Jackpot Numbers: [" + winningBingoNumbers + "] " + winningCombo;
+            //document.getElementById("winningNumbersId2").innerHTML =  "Jackpot Numbers: [" + winningBingoNumbers + "] " + winningCombo;
         }
     }
 
@@ -229,7 +229,7 @@ function startButton(instance)
         gameInstance = setInterval(gameLoop, timerDelay);
         // console.log("AFTER gameInstance = setInterval(gameLoop, timerDelay): " + gameInstance);
         //$("#winningNumbersId").innerHTML =  "00 00 00 00 00";
-        document.getElementById("winningNumbersId").innerHTML =  "00 00 00 00 00";
+        //document.getElementById("winningNumbersId").innerHTML =  "00 00 00 00 00";
         document.getElementById("startButton").innerHTML = "Running. Click to Pause";
     }
     else
@@ -378,9 +378,10 @@ export function verifyBingo()
            // console.log("cardBingoNumber: " + cardBingoNumber);
             // TODO: verify that bingoNumberButton has been selected, if not selected, then exit.
             //var buttonSelected = isBingoButtonSelected(cardBingoNumber);
-            //var buttonSelected = true;
+            var buttonSelected = true;
 
-            if (hasNumberBeenCalled(cardBingoNumber) == false)
+
+            if (hasNumberBeenCalled(cardBingoNumber) == false || buttonSelected == false)
             {
                 //console.log("hasNumberBeenCalled(" + cardBingoNumber + ") == false, Break inner loop");
                 success = false;
@@ -399,8 +400,8 @@ export function verifyBingo()
                 winningNumberIdx--; // need to reduce index by one
                 console.log("returning true. Valid sequence");
                 console.log("winningNumbers: " + winningNumbers);
-                $("#winningNumbersId").innerHTML = winningNumbers;
-                document.getElementById("winningNumbersId").innerHTML = "[" + idx + "]" + winningNumbers;
+               // $("#winningNumbersId").innerHTML = winningNumbers;
+                //document.getElementById("winningNumbersId").innerHTML = "[" + idx + "]" + winningNumbers;
                 return idx;
             }
     }
