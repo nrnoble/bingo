@@ -16,31 +16,32 @@ button
     /*font-family: "Courier New";*/
     font-family: Verdana;
     padding: 6px 6px;
+
 }
 
 /*change the button when not selected*/
 .notSelected
 {
-    background-color: lightgray;
-    border: 1px solid black;
-    border-radius: 12px;
-    font-size: 32px;
+    background-color: white;
+    border: 1px solid brown;
+    border-radius: 7px;
+    font-size: 54px;
 
 }
 
 /*change the button when selected*/
 .selected
 {
-    background-color: yellow;
-    border: 1px solid black;
-    border-radius: 12px;
-    font-size: 32px;
+    background-color: #fffe81;
+    border: 1px solid brown;
+    border-radius: 7px;
+    font-size: 55px;
 
 }
 
 .winningNumbers
 {
-    background-color:mediumpurple;
+    background-color:brown;
     border: 1px solid black;
     border-radius: 12px;
     font-size: 32px;
@@ -77,4 +78,47 @@ h2{
 .bingoNumberNotCalled
 {
     background-color: white;
+}
+.panel-body
+{
+    background-color: #faffb5;
+}
+
+#bingoCardHeader
+{
+    color:brown;
+    letter-spacing: 34px;
+    font-size:25px;
+    outline: 1px solid orange;
+    padding-left: 20px;
+}
+.bingocard
+{
+    outline: 2px solid orange;
+
+}
+#startButton
+{
+    background-color: brown;
+    color:orange;
+
+
+}
+tr{
+    color:brown;
+}
+#resetButtonID
+{
+    background-color: brown;
+    color:orange;
+}
+#btnbingo
+{
+    background-color: brown;
+    color:orange;
+
+}
+.navbar #navbar-default
+{
+    background-color: brown;
 }
