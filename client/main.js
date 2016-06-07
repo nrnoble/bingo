@@ -167,7 +167,8 @@ export function winningSequenceColor(sequenceNumber)
     {
         var id = "#cardButtonId-" + (winningCombo[idx]-1);
        // $(id).removeClass("selected");
-         $(id).css("background-color", "blue");
+        // $(id).css("background-color", "blue");
+        $(id).addClass("winningNumbers");
     }
 
 }
