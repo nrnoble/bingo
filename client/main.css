@@ -74,11 +74,8 @@ h2{
 }
 
 
-.bingoNumberNotCalled
-{
-    background-color: white;
-}
-.panel-body
+
+.panel-body, .bingoNumberNotCalled
 {
     background-color: #faffb5;
 }
