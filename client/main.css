@@ -41,7 +41,7 @@ button
 
 .winningNumbers
 {
-    background-color:brown;
+    background-color:orange;
     border: 1px solid black;
     border-radius: 12px;
 }
@@ -100,6 +100,7 @@ h2{
 {
     background-color: brown;
     color:orange;
+    padding-left: 10px;
 
 
 }
@@ -117,7 +118,16 @@ tr{
     color:orange;
 
 }
-.navbar #navbar-default
+.navbar
 {
-    background-color: brown;
+    background-color: #faffb5;
+    border-color: brown;
+
+}
+a
+{
+    color:brown;
+    font-size:15px;
+
+
 }
